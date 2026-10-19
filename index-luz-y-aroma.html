@@ -1,0 +1,774 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Luz y Aroma | Velas y amenidades personalizadas en Los Cabos</title>
+<meta name="description" content="Velas y amenidades personalizadas para hoteles, restaurantes, eventos y marcas. Más de 35 años creando detalles únicos desde Los Cabos, BCS.">
+<meta name="theme-color" content="#FAF7F0">
+<link rel="canonical" href="https://diego18140602-ops.github.io/-luz-y-aroma-web/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_MX">
+<meta property="og:site_name" content="Luz y Aroma">
+<meta property="og:title" content="Luz y Aroma | Detalles que crean experiencias">
+<meta property="og:description" content="Velas y amenidades personalizadas para hoteles, restaurantes, eventos y marcas. Más de 35 años creando detalles únicos desde Los Cabos, BCS.">
+<meta property="og:url" content="https://diego18140602-ops.github.io/-luz-y-aroma-web/">
+<meta property="og:image" content="https://diego18140602-ops.github.io/-luz-y-aroma-web/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Vela de vidrio ámbar sobre travertino con vista al mar de Los Cabos">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap">
+<style>
+  :root{
+    --bg:#FAF7F0;
+    --bg-elevated:#F1EAD8;
+    --bg-elevated-2:#E7DBC0;
+    --text:#2E2B22;
+    --text-muted:#756D59;
+    --accent:#63765A;
+    --accent-warm:#B8952E;
+    --accent-pop:#AD7A8C;
+    --line:#E5DAC2;
+    --nav-bg:rgba(250,247,240,0.92);
+    --on-accent:#FAF8F1;
+    --shadow: 0 12px 32px -18px rgba(46,43,34,0.28);
+    color-scheme: light;
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:"Space Grotesk", "Segoe UI", Arial, sans-serif;
+    -webkit-font-smoothing:antialiased;
+    padding-left:16px;
+    padding-right:16px;
+  }
+  img{max-width:100%; display:block;}
+  a{color:inherit;}
+  h1,h2,h3{font-family:"Space Grotesk", sans-serif; text-wrap:balance; margin:0;}
+  p{margin:0;}
+  :focus-visible{outline:2px solid var(--accent); outline-offset:3px;}
+
+  .wrap{max-width:1180px; margin:0 auto;}
+  .eyebrow{
+    font-size:12px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--text-muted); font-weight:600;
+  }
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    font-family:"Space Grotesk", sans-serif;
+    font-weight:600; letter-spacing:.06em; text-transform:uppercase;
+    font-size:13px; padding:15px 26px; border-radius:2px;
+    border:1px solid transparent; cursor:pointer; text-decoration:none;
+    transition: background .25s ease, color .25s ease, border-color .25s ease, transform .2s ease;
+    white-space:nowrap;
+  }
+  .btn:hover{transform:translateY(-1px);}
+  .btn-solid{background:var(--accent); color:var(--on-accent);}
+  .btn-solid:hover{background:var(--accent-warm);}
+  .btn-outline{background:transparent; color:var(--text); border-color:var(--line);}
+  .btn-outline:hover{border-color:var(--text);}
+  .btn-ghost-light{background:rgba(255,255,255,0.08); color:#F8EFE4; border-color:rgba(248,239,228,0.55); backdrop-filter: blur(2px);}
+  .btn-ghost-light:hover{background:rgba(255,255,255,0.18);}
+
+  /* ---------- NAV ---------- */
+  #site-nav{
+    position:fixed; top:env(safe-area-inset-top, 0px); left:0; right:0; z-index:100;
+    padding:22px 16px;
+    transition: padding .35s ease, background .35s ease, box-shadow .35s ease;
+  }
+  #site-nav .nav-inner{
+    max-width:1180px; margin:0 auto;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  #site-nav .logo{
+    font-weight:700; font-size:19px; letter-spacing:.02em;
+    color:#F8EFE4; text-decoration:none;
+    transition: color .35s ease;
+  }
+  #site-nav .links{display:flex; align-items:center; gap:34px;}
+  #site-nav .links a{
+    font-size:13px; text-transform:uppercase; letter-spacing:.09em; font-weight:600;
+    color:#F8EFE4; text-decoration:none; opacity:.92;
+    transition: color .35s ease, opacity .2s ease;
+  }
+  #site-nav .links a:hover{opacity:1;}
+  #site-nav .nav-cta{
+    color:#F8EFE4 !important; border:1px solid rgba(248,239,228,0.6) !important;
+    padding:10px 18px; font-size:12px;
+  }
+  #site-nav.nav--compact{
+    padding:12px 16px; background:var(--nav-bg); box-shadow:var(--shadow);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  }
+  #site-nav.nav--compact .logo, #site-nav.nav--compact .links a{color:var(--text);}
+  #site-nav.nav--compact .nav-cta{color:var(--text) !important; border-color:var(--line) !important;}
+  #nav-toggle{display:none; background:none; border:0; padding:6px; cursor:pointer;}
+  #nav-toggle svg{stroke:#F8EFE4; transition:stroke .35s ease;}
+  #site-nav.nav--compact #nav-toggle svg{stroke:var(--text);}
+  #mobile-menu{display:none;}
+
+  @media (max-width: 760px){
+    #site-nav .links{
+      position:fixed; top:0; right:0; height:100vh; width:min(78vw,320px);
+      flex-direction:column; align-items:flex-start; justify-content:flex-start;
+      gap:26px; padding:96px 28px 28px; background:var(--bg-elevated);
+      transform:translateX(100%); transition:transform .35s ease;
+      box-shadow:-14px 0 32px -20px rgba(0,0,0,.4);
+    }
+    #site-nav .links a{color:var(--text) !important; opacity:1;}
+    #site-nav .links.open{transform:translateX(0);}
+    #site-nav .nav-cta{border-color:var(--line) !important; color:var(--text) !important;}
+    #nav-toggle{display:block;}
+  }
+
+  /* ---------- HERO ---------- */
+  #hero{
+    position:relative; margin:0 -16px; min-height:min(760px, 100svh);
+    display:flex; align-items:flex-end;
+    background-image:
+      linear-gradient(0deg, rgba(20,22,15,0.82) 0%, rgba(20,22,15,0.38) 46%, rgba(20,22,15,0.14) 100%),
+      url("img/table.jpg");
+    background-size:cover; background-position:center 68%;
+    overflow:hidden;
+  }
+  #hero .hero-inner{
+    max-width:1180px; margin:0 auto; width:100%;
+    padding:150px 32px 72px;
+  }
+  #hero .eyebrow{color:#DCE0C6;}
+  #hero h1{
+    color:#FBF4EA; font-weight:700;
+    font-size:clamp(2.4rem, 6.4vw, 5rem);
+    line-height:1.03; letter-spacing:-.01em;
+    margin:18px 0 22px; max-width:14ch;
+  }
+  #hero .hero-sub{
+    color:#EFE3D2; font-size:clamp(1rem, 2vw, 1.2rem);
+    line-height:1.55; max-width:46ch; margin-bottom:34px;
+  }
+  #hero .hero-ctas{display:flex; flex-wrap:wrap; gap:14px;}
+
+  /* ---------- SECTION SHELL ---------- */
+  section{padding:96px 0;}
+  .section-head{max-width:640px; margin-bottom:52px;}
+  .section-head h2{
+    font-size:clamp(1.7rem, 3.2vw, 2.5rem); font-weight:700; margin-top:12px;
+    letter-spacing:-.01em;
+  }
+  .section-head p{color:var(--text-muted); margin-top:14px; font-size:1.02rem; line-height:1.6;}
+
+  /* ---------- FAVORITOS (horizontal scroll) ---------- */
+  #favoritos{background:var(--bg);}
+  .scroll-row{
+    display:flex; gap:20px; overflow-x:auto; scroll-snap-type:x mandatory;
+    padding-bottom:10px; margin:0 -16px; padding-left:16px; padding-right:16px;
+    scrollbar-width:thin;
+  }
+  .fav-card{
+    flex:0 0 min(360px, 82vw); scroll-snap-align:start;
+    background:var(--bg-elevated); border:1px solid var(--line);
+  }
+  .fav-card .fav-img{aspect-ratio:4/5; overflow:hidden;}
+  .fav-card .fav-img img{width:100%; height:100%; object-fit:cover;}
+  .fav-card .fav-body{padding:22px 22px 26px;}
+  .fav-card .fav-tag{color:var(--accent); font-weight:700; font-size:12px; letter-spacing:.1em; text-transform:uppercase;}
+  .fav-card h3{font-size:1.15rem; margin:10px 0 8px; font-weight:600;}
+  .fav-card p{color:var(--text-muted); font-size:.94rem; line-height:1.55;}
+
+  /* ---------- TAMBIEN HACEMOS (grid, reuses fav-card look) ---------- */
+  #tambien-hacemos{background:var(--bg-elevated);}
+  .extra-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  .extra-grid .fav-card{background:var(--bg);}
+  .extra-grid .fav-img{aspect-ratio:1/1; background:#FFFFFF; display:flex; align-items:center; justify-content:center; padding:16px;}
+  .extra-grid .fav-img img{width:100%; height:100%; object-fit:contain;}
+  @media (max-width:760px){.extra-grid{grid-template-columns:1fr;}}
+
+  /* ---------- GALERIA ---------- */
+  #galeria{background:var(--bg-elevated);}
+  .gallery-grid{display:grid; grid-template-columns:repeat(5,1fr); gap:14px; margin:0;}
+  .gallery-item{
+    background:#FFFFFF; border:1px solid var(--line); aspect-ratio:1/1;
+    display:flex; align-items:center; justify-content:center; padding:12px;
+    position:relative; margin:0;
+  }
+  .gallery-item img{width:100%; height:100%; object-fit:contain;}
+  .gallery-item figcaption{
+    position:absolute; left:8px; bottom:8px; font-size:10px; font-weight:600;
+    text-transform:uppercase; letter-spacing:.08em; color:var(--text);
+    background:rgba(250,247,240,0.88); padding:2px 7px;
+  }
+  @media (max-width:1000px){.gallery-grid{grid-template-columns:repeat(3,1fr);}}
+  @media (max-width:600px){.gallery-grid{grid-template-columns:repeat(2,1fr);}}
+
+  /* ---------- SELECTOR ---------- */
+  #selector{background:var(--bg-elevated);}
+  .selector-pills{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:36px;}
+  .pill{
+    padding:12px 22px; border-radius:999px; border:1px solid var(--line);
+    background:transparent; color:var(--text); font-family:inherit;
+    font-size:13px; font-weight:600; text-transform:uppercase; letter-spacing:.06em;
+    cursor:pointer; transition:all .25s ease;
+  }
+  .pill:hover{border-color:var(--accent);}
+  .pill[aria-selected="true"]{background:var(--accent); border-color:var(--accent); color:var(--on-accent);}
+  .selector-panel{
+    display:grid; grid-template-columns:1.1fr .9fr; gap:44px; align-items:center;
+    background:var(--bg); border:1px solid var(--line); padding:44px;
+  }
+  .selector-panel h3{font-size:1.5rem; font-weight:700; margin-bottom:14px;}
+  .selector-panel p{color:var(--text-muted); line-height:1.65; margin-bottom:22px;}
+  .selector-options{list-style:none; margin:0 0 28px; padding:0; display:flex; flex-direction:column; gap:10px;}
+  .selector-options li{display:flex; align-items:baseline; gap:12px; font-size:.95rem; color:var(--text); line-height:1.5;}
+  .selector-options li::before{content:""; flex:0 0 8px; width:8px; height:8px; background:var(--accent); margin-top:5px;}
+  .selector-visual{
+    aspect-ratio:1/1; background:var(--bg); position:relative; overflow:hidden;
+    display:grid; grid-template-columns:1.3fr 1fr; grid-template-rows:1fr 1fr; gap:6px;
+  }
+  .selector-visual img{width:100%; height:100%; object-fit:cover; display:block; background:var(--bg-elevated-2); transition:opacity .35s ease; min-height:0;}
+  .selector-visual img:first-child{grid-row:1 / 3;}
+  @media (max-width:760px){
+    .selector-panel{grid-template-columns:1fr; padding:28px;}
+    .selector-visual{order:-1; aspect-ratio:4/3;}
+  }
+
+  /* ---------- STATS ---------- */
+  #confianza{background:var(--bg);}
+  .stat-grid{
+    display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid var(--line); border-left:1px solid var(--line);
+  }
+  .stat-tile{
+    border-right:1px solid var(--line); border-bottom:1px solid var(--line);
+    padding:34px 22px; text-align:left;
+  }
+  .stat-tile .num{font-size:clamp(1.5rem,3vw,2.1rem); font-weight:700; color:var(--accent); font-variant-numeric:tabular-nums;}
+  .stat-tile .label{margin-top:6px; color:var(--text-muted); font-size:.92rem; line-height:1.4;}
+  @media (max-width:760px){
+    .stat-grid{grid-template-columns:repeat(2,1fr);}
+  }
+
+  /* ---------- VALORES ---------- */
+  #valores{background:var(--bg-elevated);}
+  .values-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line);}
+  .value-card{background:var(--bg-elevated); padding:36px 30px;}
+  .value-card .idx{color:var(--accent-pop); font-weight:700; font-size:13px; letter-spacing:.08em;}
+  .value-card h3{font-size:1.15rem; font-weight:600; margin:14px 0 10px;}
+  .value-card p{color:var(--text-muted); font-size:.95rem; line-height:1.6;}
+  @media (max-width:760px){.values-grid{grid-template-columns:1fr;}}
+
+  /* ---------- HISTORIA ---------- */
+  #historia{background:var(--bg);}
+  .historia-grid{display:grid; grid-template-columns:.85fr 1.15fr; gap:56px; align-items:center;}
+  .historia-media{position:relative;}
+  .historia-media img{width:100%; aspect-ratio:4/5; object-fit:cover;}
+  .historia-media figcaption{
+    margin-top:10px; font-size:.8rem; color:var(--text-muted); letter-spacing:.02em;
+  }
+  #historia .eyebrow{margin-bottom:14px;}
+  #historia h2{font-size:clamp(1.7rem,3.2vw,2.4rem); font-weight:700; margin-bottom:20px;}
+  #historia p.lead{font-size:1.08rem; line-height:1.7; color:var(--text); margin-bottom:16px;}
+  #historia p.sub{color:var(--text-muted); line-height:1.7;}
+  @media (max-width:760px){
+    .historia-grid{grid-template-columns:1fr; gap:28px;}
+    .historia-media{order:-1; max-width:340px;}
+  }
+
+  /* ---------- WHATSAPP BANNER ---------- */
+  #whatsapp-cta{
+    background:var(--accent); color:var(--on-accent); padding:74px 0; margin:0 -16px;
+  }
+  #whatsapp-cta .wrap{
+    max-width:1180px; padding:0 32px; display:flex; align-items:center; justify-content:space-between;
+    gap:24px; flex-wrap:wrap;
+  }
+  #whatsapp-cta h2{font-size:clamp(1.5rem,3vw,2.1rem); font-weight:700; max-width:20ch;}
+  #whatsapp-cta p{margin-top:10px; opacity:.9; max-width:40ch;}
+  #whatsapp-cta .btn-solid{background:var(--on-accent); color:var(--accent);}
+  #whatsapp-cta .btn-solid:hover{background:#fff;}
+
+  /* ---------- FOOTER ---------- */
+  footer{padding:56px 0 40px;}
+  footer .foot-top{
+    display:flex; justify-content:space-between; gap:32px; flex-wrap:wrap;
+    padding-bottom:32px; border-bottom:1px solid var(--line);
+  }
+  footer .foot-logo{font-weight:700; font-size:1.2rem;}
+  footer .foot-loc{color:var(--text-muted); margin-top:10px; font-size:.92rem; line-height:1.6; max-width:32ch;}
+  footer nav{display:flex; gap:26px; flex-wrap:wrap;}
+  footer nav a{
+    text-decoration:none; font-size:.88rem; text-transform:uppercase; letter-spacing:.07em;
+    font-weight:600; color:var(--text-muted);
+  }
+  footer nav a:hover{color:var(--text);}
+  footer .foot-bottom{
+    display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    margin-top:24px; font-size:.82rem; color:var(--text-muted);
+  }
+  footer .foot-bottom a{text-decoration:underline; color:var(--text-muted);}
+
+  /* ---------- FLOATING WHATSAPP ---------- */
+  #wa-float{
+    position:fixed; right:20px; bottom:calc(20px + env(safe-area-inset-bottom,0px)); z-index:90;
+    width:56px; height:56px; border-radius:50%; background:var(--accent); color:var(--on-accent);
+    display:flex; align-items:center; justify-content:center; text-decoration:none;
+    box-shadow:var(--shadow); transition:transform .2s ease, background .2s ease;
+  }
+  #wa-float:hover{transform:scale(1.06); background:var(--accent-warm);}
+
+  /* ---------- REVEAL ---------- */
+  .reveal{transition:opacity .7s ease, transform .7s ease;}
+
+  @media (prefers-reduced-motion: reduce){
+    .reveal{transition:none !important;}
+    #site-nav, .btn, .pill{transition:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<nav id="site-nav">
+  <div class="nav-inner">
+    <a href="#top" class="logo">Luz y Aroma</a>
+    <button id="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <div class="links" id="nav-links">
+      <a href="#favoritos">Tienda</a>
+      <a href="#selector">Hoteles</a>
+      <a href="#historia">Sobre nosotros</a>
+      <a href="#whatsapp-cta" class="nav-cta btn btn-outline">Contacto</a>
+    </div>
+  </div>
+</nav>
+
+<div id="top"></div>
+
+<header id="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">Los Cabos · Baja California Sur</p>
+    <h1>Detalles que crean experiencias.</h1>
+    <p class="hero-sub">Velas y amenidades personalizadas para hoteles, restaurantes, eventos y marcas. Más de 35 años transformando ideas en detalles únicos desde Los Cabos.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-solid" id="hero-wa" href="#" target="_blank" rel="noopener">Solicitar cotización</a>
+      <a class="btn btn-ghost-light" href="#favoritos">Ver nuestro trabajo</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section id="favoritos">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Tienda</p>
+        <h2>Lo que puedes pedir, para cada espacio</h2>
+        <p>Una muestra de piezas para tienda, hotel, restaurante y eventos — desliza para ver más.</p>
+      </div>
+      <div class="scroll-row reveal">
+        <article class="fav-card">
+          <div class="fav-img"><img src="img/gift.jpg" alt="Vela en vasija de cerámica junto a una caja de regalo envuelta con listón, sobre piedra travertino"></div>
+          <div class="fav-body">
+            <p class="fav-tag">Tienda · Regalo</p>
+            <h3>Presentación de detalle</h3>
+            <p>Empaque y presentación cuidada para clientes, colaboradores y ocasiones especiales.</p>
+          </div>
+        </article>
+        <article class="fav-card">
+          <div class="fav-img"><img src="img/bath.jpg" alt="Vela de vidrio ámbar sobre una barra de travertino en un baño con vista al mar de Los Cabos"></div>
+          <div class="fav-body">
+            <p class="fav-tag">Hotel · Spa</p>
+            <h3>Pensada para spa y habitación</h3>
+            <p>Piezas para amenidades de baño y spa, con presentación acorde a hoteles boutique.</p>
+          </div>
+        </article>
+        <article class="fav-card">
+          <div class="fav-img"><img src="img/table.jpg" alt="Vela de vidrio ámbar sobre una mesa de restaurante al atardecer, con vista al mar de Los Cabos"></div>
+          <div class="fav-body">
+            <p class="fav-tag">Restaurante</p>
+            <h3>Acompaña la experiencia de mesa</h3>
+            <p>Velas para servicio diario o por temporada, pensadas para acompañar cada mesa.</p>
+          </div>
+        </article>
+        <article class="fav-card">
+          <div class="fav-img"><img src="img/velas1.jpg" alt="Set de velas pilares en distintos colores y tamaños"></div>
+          <div class="fav-body">
+            <p class="fav-tag">Tienda · Hotel</p>
+            <h3>Velas en distintos colores</h3>
+            <p>Tamaños, medidas y colores a elegir, o diseños especiales fabricados a la medida.</p>
+          </div>
+        </article>
+        <article class="fav-card">
+          <div class="fav-img"><img src="img/velas2.jpg" alt="Velas de soya decoradas con cítricos deshidratados"></div>
+          <div class="fav-body">
+            <p class="fav-tag">Tienda · Evento</p>
+            <h3>Ediciones decorativas</h3>
+            <p>Velas con acabados y decorado especial, ideales para regalo o mesas de evento.</p>
+          </div>
+        </article>
+        <article class="fav-card">
+          <div class="fav-img"><img src="img/cajas.jpg" alt="Cajas de regalo personalizadas con nombres, listas para entregar"></div>
+          <div class="fav-body">
+            <p class="fav-tag">Tienda · Corporativo</p>
+            <h3>Cajas de regalo con nombre</h3>
+            <p>Sets armados por pieza y personalizados para colaboradores, clientes o invitados.</p>
+          </div>
+        </article>
+        <article class="fav-card">
+          <div class="fav-img"><img src="img/bienvenida.jpg" alt="Cajas redondas de regalo con botella, detalles y empaque a juego"></div>
+          <div class="fav-body">
+            <p class="fav-tag">Hotel · Evento</p>
+            <h3>Cajas de bienvenida</h3>
+            <p>Detalles de bienvenida para huéspedes o invitados, con empaque a juego.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="selector">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Cotización a la medida</p>
+        <h2>Encuentra el detalle ideal para tu espacio</h2>
+        <p>Selecciona el tipo de espacio y te contamos cómo trabajamos contigo.</p>
+      </div>
+
+      <div class="selector-pills reveal" role="tablist" aria-label="Tipo de espacio">
+        <button class="pill" role="tab" aria-selected="true" data-target="hotel">Hotel</button>
+        <button class="pill" role="tab" aria-selected="false" data-target="restaurante">Restaurante</button>
+        <button class="pill" role="tab" aria-selected="false" data-target="evento">Evento</button>
+        <button class="pill" role="tab" aria-selected="false" data-target="regalo">Tienda</button>
+      </div>
+
+      <div class="selector-panel reveal">
+        <div>
+          <h3 id="selector-title">Hotel</h3>
+          <p id="selector-text">Amenidades y velas personalizadas para habitaciones, spa y áreas comunes. Trabajamos pedidos recurrentes y por volumen, cuidando la presentación de cada detalle.</p>
+          <ul class="selector-options" id="selector-options"></ul>
+          <a class="btn btn-solid" id="selector-wa" href="#" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
+        </div>
+        <div class="selector-visual">
+          <img id="selector-img-1" src="img/bath.jpg" alt="">
+          <img id="selector-img-2" src="img/h2.jpg" alt="">
+          <img id="selector-img-3" src="img/h3.jpg" alt="">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="confianza">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Trayectoria</p>
+        <h2>Más de tres décadas de experiencia</h2>
+      </div>
+      <div class="stat-grid reveal">
+        <div class="stat-tile"><div class="num">+35 años</div><div class="label">de experiencia</div></div>
+        <div class="stat-tile"><div class="num">Los Cabos</div><div class="label">Baja California Sur</div></div>
+        <div class="stat-tile"><div class="num">Atención</div><div class="label">personalizada</div></div>
+        <div class="stat-tile"><div class="num">Pedidos</div><div class="label">por volumen</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="valores">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Cómo trabajamos</p>
+        <h2>Hecho con propósito. Pensado para experiencias.</h2>
+      </div>
+      <div class="values-grid reveal">
+        <div class="value-card">
+          <p class="idx">01</p>
+          <h3>Conocimiento de hospitalidad</h3>
+          <p>Entendemos las necesidades de hoteles, restaurantes y eventos, y diseñamos alrededor de ellas.</p>
+        </div>
+        <div class="value-card">
+          <p class="idx">02</p>
+          <h3>Desarrollo a la medida</h3>
+          <p>Cada producto se piensa según el espacio, la marca o la celebración que lo necesita.</p>
+        </div>
+        <div class="value-card">
+          <p class="idx">03</p>
+          <h3>Relaciones de largo plazo</h3>
+          <p>Trabajamos con clientes recurrentes, cuidando cada detalle y presentación en el tiempo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tambien-hacemos">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Más allá de las velas</p>
+        <h2>También creamos otros detalles para tu espacio o evento</h2>
+        <p>Con la misma experiencia de más de 35 años, complementamos amenidades y ambientación con estas categorías.</p>
+      </div>
+      <div class="extra-grid reveal">
+        <article class="fav-card">
+          <div class="fav-img"><img src="img/floreria.jpg" alt="Arreglo floral en tonos morados y blancos, en base de cristal"></div>
+          <div class="fav-body">
+            <p class="fav-tag">Florería</p>
+            <h3>Arreglos florales</h3>
+            <p>Arreglos para eventos, hoteles y ocasiones especiales, a la medida de cada espacio.</p>
+          </div>
+        </article>
+        <article class="fav-card">
+          <div class="fav-img"><img src="img/navidad.jpg" alt="Arreglo decorativo navideño en blanco y dorado"></div>
+          <div class="fav-body">
+            <p class="fav-tag">Decoración de temporada</p>
+            <h3>Ambientación navideña</h3>
+            <p>Decoración de temporada para espacios, eventos y recepciones.</p>
+          </div>
+        </article>
+        <article class="fav-card">
+          <div class="fav-img"><img src="img/resina.jpg" alt="Set de accesorios de baño en resina color verde"></div>
+          <div class="fav-body">
+            <p class="fav-tag">Accesorios de baño</p>
+            <h3>Sets en resina</h3>
+            <p>Accesorios y amenidades en resina para baños de hotel y spa.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="galeria">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Galería</p>
+        <h2>Parte de nuestros diseños</h2>
+        <p>Velas, spa, florería, resina y decoración — variedad real de piezas que trabajamos.</p>
+      </div>
+      <div class="gallery-grid reveal">
+        <figure class="gallery-item"><img src="img/g1.jpg" alt="Velas pilares en tonos naranja"><figcaption>Velas</figcaption></figure>
+        <figure class="gallery-item"><img src="img/g2.jpg" alt="Velas decorativas con textura de puntos"><figcaption>Velas</figcaption></figure>
+        <figure class="gallery-item"><img src="img/g3.jpg" alt="Vasos de vidrio con velas moradas"><figcaption>Velas</figcaption></figure>
+        <figure class="gallery-item"><img src="img/g4.jpg" alt="Canasta de amenidades de spa con toallas"><figcaption>Spa</figcaption></figure>
+        <figure class="gallery-item"><img src="img/g5.jpg" alt="Botella con lavanda para spa"><figcaption>Spa</figcaption></figure>
+        <figure class="gallery-item"><img src="img/g6.jpg" alt="Florero de vidrio en tono azul verdoso"><figcaption>Florería</figcaption></figure>
+        <figure class="gallery-item"><img src="img/g7.jpg" alt="Arreglo floral blanco con orquídeas"><figcaption>Florería</figcaption></figure>
+        <figure class="gallery-item"><img src="img/g8.jpg" alt="Set de accesorios de baño en resina color blanco"><figcaption>Resina</figcaption></figure>
+        <figure class="gallery-item"><img src="img/g9.jpg" alt="Set de accesorios de baño en resina color negro"><figcaption>Resina</figcaption></figure>
+        <figure class="gallery-item"><img src="img/g10.jpg" alt="Corona decorativa navideña con vela roja"><figcaption>Temporada</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="historia">
+    <div class="wrap historia-grid">
+      <figure class="historia-media reveal">
+        <img src="img/gift.jpg" alt="Vela y caja de regalo artesanal sobre piedra travertino, fotografía de producto Luz y Aroma">
+        <figcaption>Detalle artesanal · Luz y Aroma</figcaption>
+      </figure>
+      <div class="reveal">
+        <p class="eyebrow">Sobre Luz y Aroma</p>
+        <h2>Más de 35 años creando con propósito</h2>
+        <p class="lead">Detrás de Luz y Aroma está Lucia Raquel, quien ha dedicado más de 35 años a crear y personalizar detalles para sus clientes.</p>
+        <p class="sub">Esa trayectoria hoy se traduce en soluciones para hotelería, negocios y eventos, desarrolladas a la medida de cada proyecto. Desde Los Cabos, Luz y Aroma combina experiencia, creatividad y atención personalizada para transformar una idea en un producto pensado para cada espacio, marca o celebración.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="whatsapp-cta-section" style="padding:0;">
+    <div id="whatsapp-cta" class="reveal">
+      <div class="wrap">
+        <div>
+          <h2>Cuéntanos tu idea</h2>
+          <p>Escríbenos por WhatsApp y platicamos los detalles de tu proyecto, sin compromiso.</p>
+        </div>
+        <a class="btn btn-solid" id="banner-wa" href="#" target="_blank" rel="noopener">Hablar con Luz y Aroma</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <p class="foot-logo">Luz y Aroma</p>
+        <p class="foot-loc">Los Cabos, Baja California Sur, México<br>WhatsApp: +52 624 177 7607</p>
+      </div>
+      <nav>
+        <a href="#favoritos">Tienda</a>
+        <a href="#selector">Hoteles</a>
+        <a href="#historia">Sobre nosotros</a>
+        <a href="#whatsapp-cta-section">Contacto</a>
+      </nav>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Luz y Aroma · Los Cabos, Baja California Sur.</span>
+      <a id="footer-wa" href="#" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+    </div>
+  </div>
+</footer>
+
+<a id="wa-float" href="#" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+</a>
+
+<script>
+(function(){
+  var WA_NUMBER = "526241777607";
+  function waLink(msg){ return "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(msg); }
+  var BASE_MSG = "Hola, vi la página de Luz y Aroma y me gustaría recibir información sobre un proyecto personalizado.";
+
+  ["hero-wa","banner-wa","footer-wa"].forEach(function(id){
+    var el = document.getElementById(id);
+    if(el){ el.href = waLink(BASE_MSG); }
+  });
+
+  var waFloat = document.getElementById("wa-float");
+  if(waFloat){ waFloat.href = waLink(BASE_MSG); }
+
+  // Nav compact on scroll
+  var nav = document.getElementById("site-nav");
+  function onScroll(){
+    if(window.scrollY > 40){ nav.classList.add("nav--compact"); }
+    else { nav.classList.remove("nav--compact"); }
+  }
+  onScroll();
+  window.addEventListener("scroll", onScroll, {passive:true});
+
+  // Mobile menu toggle
+  var toggle = document.getElementById("nav-toggle");
+  var links = document.getElementById("nav-links");
+  toggle.addEventListener("click", function(){
+    var open = links.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+  links.querySelectorAll("a").forEach(function(a){
+    a.addEventListener("click", function(){ links.classList.remove("open"); toggle.setAttribute("aria-expanded","false"); });
+  });
+
+  // Selector interactivo
+  var DATA = {
+    hotel: {
+      title: "Hotel",
+      text: "Amenidades y velas personalizadas para habitaciones, spa y áreas comunes, con atención a la presentación de cada detalle.",
+      options: [
+        "Amenidades de bienvenida y spa para habitaciones",
+        "Velas para áreas comunes, lobby y eventos del hotel",
+        "Pedidos recurrentes y por volumen"
+      ],
+      imgs: [
+        {src:"img/bath.jpg", alt:"Vela de vidrio ámbar sobre barra de travertino en un baño de hotel con vista al mar"},
+        {src:"img/h2.jpg", alt:"Canasta de amenidades de spa con toallas y accesorios de madera"},
+        {src:"img/h3.jpg", alt:"Botellas de aceites aromáticos para amenidades de spa"}
+      ],
+      msg: "Hola, vi la página de Luz y Aroma y me gustaría cotizar amenidades personalizadas para mi hotel."
+    },
+    restaurante: {
+      title: "Restaurante",
+      text: "Velas y piezas de ambientación pensadas para mesas y servicio, con consistencia para uso diario o por temporada.",
+      options: [
+        "Velas de mesa para servicio diario",
+        "Ambientación por temporada o evento especial",
+        "Piezas personalizadas con la identidad de tu restaurante"
+      ],
+      imgs: [
+        {src:"img/table.jpg", alt:"Vela de vidrio ámbar sobre una mesa de restaurante al atardecer"},
+        {src:"img/r2.jpg", alt:"Portavelas de vidrio ámbar con base dorada"},
+        {src:"img/r3.jpg", alt:"Vaso de cristal con base metálica para vela de mesa"}
+      ],
+      msg: "Hola, vi la página de Luz y Aroma y me gustaría cotizar velas para mi restaurante."
+    },
+    evento: {
+      title: "Evento",
+      text: "Detalles personalizados para bodas, celebraciones corporativas y eventos especiales, desarrollados según cada proyecto.",
+      options: [
+        "Centros de mesa y velas para el evento",
+        "Arreglos florales y ambientación del espacio",
+        "Detalles personalizados para invitados"
+      ],
+      imgs: [
+        {src:"img/e1.jpg", alt:"Árbol decorativo con flores y esfera de cristal colgante en un salón de eventos"},
+        {src:"img/e2.jpg", alt:"Recuerdos de macarons en empaque individual con etiqueta"},
+        {src:"img/e3.jpg", alt:"Frascos de miel con cuchara de madera y listón como detalle para invitados"}
+      ],
+      msg: "Hola, vi la página de Luz y Aroma y me gustaría cotizar detalles personalizados para un evento."
+    },
+    regalo: {
+      title: "Tienda y regalo",
+      text: "Piezas personalizadas para regalo, con presentación cuidada para clientes, colaboradores o momentos especiales.",
+      options: [
+        "Velas individuales, listas para regalo",
+        "Sets y cajas personalizadas para empresas",
+        "Presentación y empaque a la medida"
+      ],
+      imgs: [
+        {src:"img/gift.jpg", alt:"Vela en vasija de cerámica junto a una caja de regalo con listón"},
+        {src:"img/t2.jpg", alt:"Frascos de vidrio con tapa de corcho y etiqueta atados con cordón"},
+        {src:"img/t3.jpg", alt:"Frasco con dulce de leche tapado con tela y cordón de yute"}
+      ],
+      msg: "Hola, vi la página de Luz y Aroma y me gustaría cotizar un regalo personalizado."
+    }
+  };
+
+  var pills = document.querySelectorAll(".pill");
+  var elTitle = document.getElementById("selector-title");
+  var elText = document.getElementById("selector-text");
+  var elImgs = [1,2,3].map(function(i){ return document.getElementById("selector-img-" + i); });
+  var elWa = document.getElementById("selector-wa");
+  var elOptions = document.getElementById("selector-options");
+
+  function setPanel(key){
+    var d = DATA[key];
+    if(!d) return;
+    elTitle.textContent = d.title;
+    elText.textContent = d.text;
+    d.imgs.forEach(function(im, i){
+      var el = elImgs[i];
+      if(el.getAttribute("src") === im.src){ el.alt = im.alt; return; }
+      el.style.opacity = "0";
+      setTimeout(function(){ el.src = im.src; el.alt = im.alt; el.style.opacity = "1"; }, 180 + i*90);
+    });
+    elWa.href = waLink(d.msg);
+    elOptions.innerHTML = "";
+    (d.options || []).forEach(function(opt){
+      var li = document.createElement("li");
+      li.textContent = opt;
+      elOptions.appendChild(li);
+    });
+    pills.forEach(function(p){ p.setAttribute("aria-selected", p.dataset.target === key ? "true" : "false"); });
+  }
+
+  pills.forEach(function(p){
+    p.addEventListener("click", function(){ setPanel(p.dataset.target); });
+  });
+  setPanel("hotel");
+
+  // Reveal on scroll (progressive enhancement, safe if JS or IO fails)
+  var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(!reduceMotion && "IntersectionObserver" in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.style.opacity = "";
+          entry.target.style.transform = "";
+          io.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.15, rootMargin:"0px 0px -40px 0px"});
+
+    document.querySelectorAll(".reveal").forEach(function(el){
+      var rect = el.getBoundingClientRect();
+      if(rect.top > window.innerHeight * 0.9){
+        el.style.opacity = "0";
+        el.style.transform = "translateY(24px)";
+        io.observe(el);
+      }
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
