@@ -163,7 +163,22 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--lm-fucsia);outline-
 .proy dl{display:grid;grid-template-columns:auto 1fr;gap:10px 20px;margin:24px 0 0;padding-top:20px;border-top:1px solid var(--lm-arena);font:400 15px/1.4 var(--lm-font-sans)}
 .proy dt{font:400 12px/1.6 var(--lm-font-sans);letter-spacing:var(--lm-tracking-caps);text-transform:uppercase;color:var(--lm-pizarra)}
 .proy dd{margin:0}
-.proy-list{display:grid;gap:64px}
+.res{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px}
+.res div{border-top:2px solid var(--lm-fucsia);padding-top:14px}
+.res div:first-child{border-top-color:var(--lm-arena)}
+.res b{display:block;font:300 64px/1 var(--lm-font-display);color:var(--lm-carbon)}
+.res div:last-child b{color:var(--lm-fucsia)}
+.res span{display:block;margin-top:8px;font:300 14px/1.45 var(--lm-font-sans);color:var(--lm-pizarra)}
+.proy-list{display:grid;gap:96px}
+.proy-full+.proy-full{padding-top:96px;border-top:1px solid var(--lm-arena)}
+.proy-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:16px}
+.proy-grid figure{margin:0}
+.proy-grid figcaption{margin-top:12px;font:400 12px/1.4 var(--lm-font-sans);letter-spacing:var(--lm-tracking-caps);text-transform:uppercase;color:var(--lm-pizarra)}
+.ba--sm{aspect-ratio:3/2}
+.ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ba--solo .ba__after{clip-path:none}
+.ba--solo .ba__tag,.ba--solo .ba__line,.ba--solo input{display:none}
+.ba__nota{margin:20px 0 0;font:300 13px/1.5 var(--lm-font-sans);color:var(--lm-pizarra)}
 .serv{display:grid;grid-template-columns:1fr;gap:0;margin-top:40px;border-top:1px solid var(--lm-carbon)}
 .serv article{padding:28px 0;border-bottom:1px solid var(--lm-arena)}
 .serv b{display:block;font:300 40px/1 var(--lm-font-display);color:var(--lm-fucsia);margin-bottom:14px}
@@ -178,7 +193,12 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--lm-fucsia);outline-
 .pasos-wrap .lm-titulo{color:var(--lm-hueso)}
 @media (min-width:760px){
   .esp-hero{padding:88px 0 64px}
-  .ba{aspect-ratio:16/10}
+  .ba{aspect-ratio:3/2}
+  .proy-grid{grid-template-columns:repeat(2,1fr);gap:20px;margin-top:20px}
+  .proy-grid:not(.proy-grid--par) figure:first-child{grid-column:span 2}
+  .proy-grid:not(.proy-grid--par) figure:first-child .ba{aspect-ratio:21/10}
+  .proy.proy--rev{grid-template-columns:1fr 1.6fr}
+  .proy--rev>.ba{order:2}
   .proy{grid-template-columns:1.6fr 1fr;gap:56px}
   .serv{grid-template-columns:repeat(3,1fr);gap:40px;border-top:0}
   .serv article{border-top:1px solid var(--lm-carbon);border-bottom:0}
@@ -226,23 +246,144 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--lm-fucsia);outline-
 
   <section class="wrap" aria-labelledby="proy-t" style="padding-bottom:96px">
     <h2 id="proy-t" class="lm-overline" style="margin:0 0 20px">Antes y después</h2>
-    <!-- PROYECTOS: duplica un <article class="proy"> por proyecto. Fotos: img/NOMBRE-antes.jpg e img/NOMBRE-despues.jpg (mismo encuadre). -->
+    <!-- PROYECTOS: duplica un <article class="proy"> por proyecto.
+         Fotos: img/NOMBRE-ESPACIO-despues.jpg (real) e img/NOMBRE-ESPACIO-antes.jpg (opcional, mismo encuadre).
+         Si la foto "antes" no existe, se muestra solo la foto real, sin comparador. -->
     <div class="proy-list">
-      <article class="proy">
-        <div class="ba" style="--pos:50%">
-          <div class="ba__layer"><div class="ph"><img class="ph__mono" src="marca/logos/svg/lm-monograma.svg" alt=""><img data-src="img/proyecto1-antes.jpg" alt="Proyecto 1, antes de la renovación" hidden></div></div>
-          <div class="ba__layer ba__after"><div class="ph"><img class="ph__mono" src="marca/logos/svg/lm-monograma.svg" alt=""><img data-src="img/proyecto1-despues.jpg" alt="Proyecto 1, después de la renovación" hidden></div></div>
-          <span class="ba__tag ba__tag--a">Antes</span><span class="ba__tag ba__tag--d">Después</span>
-          <div class="ba__line"><span class="ba__knob" aria-hidden="true">↔</span></div>
-          <input type="range" min="0" max="100" value="50" aria-label="Comparar antes y después">
+      <article class="proy-full">
+        <div class="proy">
+          <div class="ba ba--solo" style="--pos:50%">
+            <div class="ba__layer"><img data-antes="img/depa1-sala-antes.jpg" alt="Sala, comedor y cocina, antes (recreación)" hidden></div>
+            <div class="ba__layer ba__after"><img src="img/depa1-sala-despues.jpg" alt="Sala, comedor y cocina, después del proyecto de Lucía &amp; María" loading="eager"></div>
+            <span class="ba__tag ba__tag--a">Antes</span><span class="ba__tag ba__tag--d">Después</span>
+            <div class="ba__line"><span class="ba__knob" aria-hidden="true">↔</span></div>
+            <input type="range" min="0" max="100" value="50" aria-label="Comparar antes y después: Sala, comedor y cocina" tabindex="-1">
+          </div>
+          <div>
+            <div class="lm-overline">Proyecto destacado</div>
+            <span class="lm-filete" aria-hidden="true"></span>
+            <h3>De 8 meses en venta a vendida en 3</h3>
+            <p>La propiedad llevaba cerca de 8 meses en el mercado. La decoramos completa, se publicaron fotos nuevas y se vendió en los 3 meses siguientes.</p>
+            <div class="res"><div><b>8</b><span>meses en venta sin decorar</span></div><div><b>3</b><span>meses para venderse después</span></div></div>
+            <dl><dt>Espacio</dt><dd>Departamento · 3 recámaras</dd><dt>Ubicación</dt><dd>Los Cabos, BCS</dd><dt>Alcance</dt><dd>Decoración para venta · Mobiliario</dd><dt>Resultado</dt><dd>Vendida</dd></dl>
+            <a class="lm-btn lm-btn--primario" data-wa="Hola, quiero decorar mi propiedad para venderla o rentarla más rápido." href="https://wa.me/526241777607" target="_blank" rel="noopener" style="margin-top:28px">Decora mi propiedad</a>
+          </div>
         </div>
-        <div>
-          <div class="lm-overline">Proyecto destacado</div>
-          <span class="lm-filete" aria-hidden="true"></span>
-          <h3>Nombre del proyecto</h3>
-          <p>Describe en dos frases qué cambiaste y por qué. Ej.: abrimos la cocina a la sala y llevamos la luz del mar hasta el fondo.</p>
-          <dl><dt>Espacio</dt><dd>Departamento</dd><dt>Ubicación</dt><dd>Los Cabos, BCS</dd><dt>Alcance</dt><dd>Proyecto · Construcción · Decoración</dd></dl>
+        <div class="proy-grid">
+          <figure>
+          <div class="ba ba--solo ba--sm" style="--pos:50%">
+            <div class="ba__layer"><img data-antes="img/depa1-cocina-antes.jpg" alt="Cocina y terraza, antes (recreación)" hidden></div>
+            <div class="ba__layer ba__after"><img src="img/depa1-cocina-despues.jpg" alt="Cocina y terraza, después del proyecto de Lucía &amp; María" loading="lazy"></div>
+            <span class="ba__tag ba__tag--a">Antes</span><span class="ba__tag ba__tag--d">Después</span>
+            <div class="ba__line"><span class="ba__knob" aria-hidden="true">↔</span></div>
+            <input type="range" min="0" max="100" value="50" aria-label="Comparar antes y después: Cocina y terraza" tabindex="-1">
+          </div>
+            <figcaption>Cocina y terraza</figcaption>
+          </figure>
+          <figure>
+          <div class="ba ba--solo ba--sm" style="--pos:50%">
+            <div class="ba__layer"><img data-antes="img/depa1-estancia-antes.jpg" alt="Sala y comedor, antes (recreación)" hidden></div>
+            <div class="ba__layer ba__after"><img src="img/depa1-estancia-despues.jpg" alt="Sala y comedor, después del proyecto de Lucía &amp; María" loading="lazy"></div>
+            <span class="ba__tag ba__tag--a">Antes</span><span class="ba__tag ba__tag--d">Después</span>
+            <div class="ba__line"><span class="ba__knob" aria-hidden="true">↔</span></div>
+            <input type="range" min="0" max="100" value="50" aria-label="Comparar antes y después: Sala y comedor" tabindex="-1">
+          </div>
+            <figcaption>Sala y comedor</figcaption>
+          </figure>
+          <figure>
+          <div class="ba ba--solo ba--sm" style="--pos:50%">
+            <div class="ba__layer"><img data-antes="img/depa1-principal-antes.jpg" alt="Recámara principal, antes (recreación)" hidden></div>
+            <div class="ba__layer ba__after"><img src="img/depa1-principal-despues.jpg" alt="Recámara principal, después del proyecto de Lucía &amp; María" loading="lazy"></div>
+            <span class="ba__tag ba__tag--a">Antes</span><span class="ba__tag ba__tag--d">Después</span>
+            <div class="ba__line"><span class="ba__knob" aria-hidden="true">↔</span></div>
+            <input type="range" min="0" max="100" value="50" aria-label="Comparar antes y después: Recámara principal" tabindex="-1">
+          </div>
+            <figcaption>Recámara principal</figcaption>
+          </figure>
+          <figure>
+          <div class="ba ba--solo ba--sm" style="--pos:50%">
+            <div class="ba__layer"><img data-antes="img/depa1-recamara3-antes.jpg" alt="Recámara dos, antes (recreación)" hidden></div>
+            <div class="ba__layer ba__after"><img src="img/depa1-recamara3-despues.jpg" alt="Recámara dos, después del proyecto de Lucía &amp; María" loading="lazy"></div>
+            <span class="ba__tag ba__tag--a">Antes</span><span class="ba__tag ba__tag--d">Después</span>
+            <div class="ba__line"><span class="ba__knob" aria-hidden="true">↔</span></div>
+            <input type="range" min="0" max="100" value="50" aria-label="Comparar antes y después: Recámara dos" tabindex="-1">
+          </div>
+            <figcaption>Recámara dos</figcaption>
+          </figure>
+          <figure>
+          <div class="ba ba--solo ba--sm" style="--pos:50%">
+            <div class="ba__layer"><img data-antes="img/depa1-recamara2-antes.jpg" alt="Recámara tres, antes (recreación)" hidden></div>
+            <div class="ba__layer ba__after"><img src="img/depa1-recamara2-despues.jpg" alt="Recámara tres, después del proyecto de Lucía &amp; María" loading="lazy"></div>
+            <span class="ba__tag ba__tag--a">Antes</span><span class="ba__tag ba__tag--d">Después</span>
+            <div class="ba__line"><span class="ba__knob" aria-hidden="true">↔</span></div>
+            <input type="range" min="0" max="100" value="50" aria-label="Comparar antes y después: Recámara tres" tabindex="-1">
+          </div>
+            <figcaption>Recámara tres</figcaption>
+          </figure>
         </div>
+        <p class="ba__nota" hidden>Antes: recreación ilustrativa del estado original.</p>
+      </article>
+      <article class="proy-full">
+        <div class="proy proy--rev">
+          <div class="ba ba--solo" style="--pos:50%">
+            <div class="ba__layer"><img data-antes="img/depa2-sala-antes.jpg" alt="Sala, cocina y ventanales, antes (recreación)" hidden></div>
+            <div class="ba__layer ba__after"><img src="img/depa2-sala-despues.jpg" alt="Sala, cocina y ventanales, después de la remodelación de Lucía &amp; María" loading="lazy"></div>
+            <span class="ba__tag ba__tag--a">Antes</span><span class="ba__tag ba__tag--d">Después</span>
+            <div class="ba__line"><span class="ba__knob" aria-hidden="true">↔</span></div>
+            <input type="range" min="0" max="100" value="50" aria-label="Comparar antes y después: Sala, cocina y ventanales" tabindex="-1">
+          </div>
+          <div>
+            <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap"><span class="lm-overline">Proyecto reciente</span><span class="lm-etiqueta">En venta</span></div>
+            <span class="lm-filete" aria-hidden="true"></span>
+            <h3>Remodelado y listo para habitar</h3>
+            <p>Remodelamos y decoramos este departamento en Los Cabos para salir a la venta: muro de acento, iluminación nueva, cocina abierta y baños renovados. Hoy está en el mercado.</p>
+            <dl><dt>Espacio</dt><dd>Departamento con áreas comunes y alberca</dd><dt>Ubicación</dt><dd>Los Cabos, BCS</dd><dt>Alcance</dt><dd>Remodelación · Decoración</dd><dt>Estado</dt><dd>En venta</dd></dl>
+            <a class="lm-btn lm-btn--primario" data-wa="Hola, me interesa el departamento remodelado en venta que vi en su página." href="https://wa.me/526241777607" target="_blank" rel="noopener" style="margin-top:28px">Me interesa esta propiedad</a>
+          </div>
+        </div>
+        <div class="proy-grid proy-grid--par">
+          <figure>
+          <div class="ba ba--solo ba--sm" style="--pos:50%">
+            <div class="ba__layer"><img data-antes="img/depa2-cocina-antes.jpg" alt="Cocina y estancia, antes (recreación)" hidden></div>
+            <div class="ba__layer ba__after"><img src="img/depa2-cocina-despues.jpg" alt="Cocina y estancia, después de la remodelación de Lucía &amp; María" loading="lazy"></div>
+            <span class="ba__tag ba__tag--a">Antes</span><span class="ba__tag ba__tag--d">Después</span>
+            <div class="ba__line"><span class="ba__knob" aria-hidden="true">↔</span></div>
+            <input type="range" min="0" max="100" value="50" aria-label="Comparar antes y después: Cocina y estancia" tabindex="-1">
+          </div>
+            <figcaption>Cocina y estancia</figcaption>
+          </figure>
+          <figure>
+          <div class="ba ba--solo ba--sm" style="--pos:50%">
+            <div class="ba__layer"><img data-antes="img/depa2-recamara-antes.jpg" alt="Recámara, antes (recreación)" hidden></div>
+            <div class="ba__layer ba__after"><img src="img/depa2-recamara-despues.jpg" alt="Recámara, después de la remodelación de Lucía &amp; María" loading="lazy"></div>
+            <span class="ba__tag ba__tag--a">Antes</span><span class="ba__tag ba__tag--d">Después</span>
+            <div class="ba__line"><span class="ba__knob" aria-hidden="true">↔</span></div>
+            <input type="range" min="0" max="100" value="50" aria-label="Comparar antes y después: Recámara" tabindex="-1">
+          </div>
+            <figcaption>Recámara</figcaption>
+          </figure>
+          <figure>
+          <div class="ba ba--solo ba--sm" style="--pos:50%">
+            <div class="ba__layer"><img data-antes="img/depa2-bano-antes.jpg" alt="Baño de visitas, antes (recreación)" hidden></div>
+            <div class="ba__layer ba__after"><img src="img/depa2-bano-despues.jpg" alt="Baño de visitas, después de la remodelación de Lucía &amp; María" loading="lazy"></div>
+            <span class="ba__tag ba__tag--a">Antes</span><span class="ba__tag ba__tag--d">Después</span>
+            <div class="ba__line"><span class="ba__knob" aria-hidden="true">↔</span></div>
+            <input type="range" min="0" max="100" value="50" aria-label="Comparar antes y después: Baño de visitas" tabindex="-1">
+          </div>
+            <figcaption>Baño de visitas</figcaption>
+          </figure>
+          <figure>
+          <div class="ba ba--solo ba--sm" style="--pos:50%">
+            <div class="ba__layer"><img data-antes="img/depa2-areas-antes.jpg" alt="Áreas comunes y alberca, antes (recreación)" hidden></div>
+            <div class="ba__layer ba__after"><img src="img/depa2-areas-despues.jpg" alt="Áreas comunes y alberca, después de la remodelación de Lucía &amp; María" loading="lazy"></div>
+            <span class="ba__tag ba__tag--a">Antes</span><span class="ba__tag ba__tag--d">Después</span>
+            <div class="ba__line"><span class="ba__knob" aria-hidden="true">↔</span></div>
+            <input type="range" min="0" max="100" value="50" aria-label="Comparar antes y después: Áreas comunes y alberca" tabindex="-1">
+          </div>
+            <figcaption>Áreas comunes y alberca</figcaption>
+          </figure>
+        </div>
+        <p class="ba__nota" hidden>Antes: recreación ilustrativa del estado original.</p>
       </article>
     </div>
   </section>
@@ -335,6 +476,16 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--lm-fucsia);outline-
   document.querySelectorAll(".ba").forEach(function(ba){
     var r = ba.querySelector("input");
     r.addEventListener("input", function(){ ba.style.setProperty("--pos", r.value + "%"); });
+    var antes = ba.querySelector("img[data-antes]");
+    if(!antes) return;
+    var probe = new Image();
+    probe.onload = function(){
+      antes.src = antes.getAttribute("data-antes"); antes.hidden = false;
+      ba.classList.remove("ba--solo"); r.removeAttribute("tabindex");
+      var nota = ba.closest(".proy-full") && ba.closest(".proy-full").querySelector(".ba__nota");
+      if(nota) nota.hidden = false;
+    };
+    probe.src = antes.getAttribute("data-antes");
   });
   document.querySelectorAll("img[data-src]").forEach(function(img){
     var probe = new Image();

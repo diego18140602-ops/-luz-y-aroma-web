@@ -24,7 +24,7 @@ Repo GitHub `diego18140602-ops/-luz-y-aroma-web` (rama main) → EasyPanel (VPS 
 - [ ] Contenido: textos de servicios Proyectos / Construcción / Decoración, sobre Lucía Raquel, testimonios
 - [ ] Fotos de proyectos reales de construcción y decoración en `img/`
 - [x] `index.html`, `detalles.html`, `espacios.html` con la nueva marca (vista de diseño)
-- [ ] Fotos pendientes: img/espacios-portada.jpg, img/lucia-raquel.jpg, img/proyecto1-antes.jpg, img/proyecto1-despues.jpg, img/hero-velas.mp4 (opcional)
+- [ ] Fotos pendientes: img/lucia-raquel.jpg, fotos "antes" de depa1/depa2 (img/depaN-*-antes.jpg, opcionales), img/hero-velas.mp4 (opcional)
 - [ ] Contenido real: testimonios, cifras, proyecto; luego quitar noindex
 - [ ] Revisar del index viejo lo que falte migrar: `<title>`, meta description, `og:*`, logo del header y footer, textos "Luz y Aroma", mensajes de WhatsApp, colores y tipografías → `marca/brand.css`, favicon → `marca/logos/svg/lm-icono-fucsia.svg`
 - [ ] Dominio propio: actualizar `canonical`, `og:url` y `og:image` (hoy apuntan a github.io)
