@@ -33,7 +33,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--lm-fucsia);outline-
 /* Header */
 .hd{position:sticky;top:0;z-index:50;background:rgba(250,247,244,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--lm-arena)}
 .hd__in{display:flex;align-items:center;justify-content:space-between;height:72px}
-.hd__logo img{height:30px;width:auto}
+.hd__logo img{height:40px;width:auto;max-width:calc(100vw - 96px);display:block}
 .hd__nav{display:none}
 .hd__nav a{font:500 13px/1 var(--lm-font-sans);letter-spacing:.14em;text-transform:uppercase;color:var(--lm-carbon);text-decoration:none;padding:8px 0;border-bottom:2px solid transparent}
 .hd__nav a:hover,.hd__nav a[aria-current="page"]{border-bottom-color:var(--lm-fucsia);color:var(--lm-carbon)}
@@ -138,8 +138,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--lm-fucsia);outline-
   .wrap{padding:0 80px}
   .hd__nav{display:flex;align-items:center;gap:32px}
   .hd__burger{display:none}
-  .hd__in{height:84px}
-  .hd__logo img{height:34px}
+  .hd__in{height:92px}
+  .hd__logo img{height:52px}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.door__img img{transition:none}}
 
@@ -211,7 +211,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--lm-fucsia);outline-
 
 <header class="hd">
   <div class="wrap hd__in">
-    <a class="hd__logo" href="index.html" aria-label="Lucía &amp; María, inicio"><img src="marca/logos/svg/lm-logo-horizontal.svg" alt="Lucía &amp; María"></a>
+    <a class="hd__logo" href="index.html" aria-label="Lucía &amp; María, inicio"><img src="marca/logos/svg/lm-logo-header.svg" alt="Lucía &amp; María"></a>
     <nav class="hd__nav" aria-label="Principal">
       <a href="detalles.html">Detalles y suministros</a>
       <a href="espacios.html" aria-current="page">Espacios</a>
@@ -222,7 +222,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--lm-fucsia);outline-
   </div>
 </header>
 <div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Menú">
-  <div class="menu__top"><img src="marca/logos/svg/lm-logo-horizontal.svg" alt="Lucía &amp; María" style="height:30px"><button class="menu__close" id="menu-close" aria-label="Cerrar menú">×</button></div>
+  <div class="menu__top"><img src="marca/logos/svg/lm-logo-header.svg" alt="Lucía &amp; María" style="height:38px;width:auto;max-width:calc(100vw - 96px)"><button class="menu__close" id="menu-close" aria-label="Cerrar menú">×</button></div>
   <nav aria-label="Menú móvil">
     <a href="index.html">Inicio <small>01</small></a>
     <a href="detalles.html">Detalles y suministros <small>02</small></a>
