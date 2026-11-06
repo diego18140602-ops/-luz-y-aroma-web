@@ -33,7 +33,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rg-fucsia);outline-
 /* Header */
 .hd{position:sticky;top:0;z-index:50;background:rgba(250,247,244,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--rg-arena)}
 .hd__in{display:flex;align-items:center;justify-content:space-between;height:72px}
-.hd__logo img{height:40px;width:auto;max-width:calc(100vw - 96px);display:block}
+.hd__in{gap:24px}
+.hd__logo{flex:0 1 265px;min-width:0}
+.hd__logo img{width:100%;height:auto;display:block}
 .hd__nav{display:none}
 .hd__nav a{font:500 13px/1 var(--rg-font-sans);letter-spacing:.14em;text-transform:uppercase;color:var(--rg-carbon);text-decoration:none;padding:8px 0;border-bottom:2px solid transparent}
 .hd__nav a:hover,.hd__nav a[aria-current="page"]{border-bottom-color:var(--rg-fucsia);color:var(--rg-carbon)}
@@ -139,7 +141,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rg-fucsia);outline-
   .hd__nav{display:flex;align-items:center;gap:32px}
   .hd__burger{display:none}
   .hd__in{height:92px}
-  .hd__logo img{height:52px}
+  .hd__logo{flex-basis:344px}
+  .hd__nav{flex:none}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.door__img img{transition:none}}
 </style>

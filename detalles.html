@@ -33,7 +33,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rg-fucsia);outline-
 /* Header */
 .hd{position:sticky;top:0;z-index:50;background:rgba(250,247,244,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--rg-arena)}
 .hd__in{display:flex;align-items:center;justify-content:space-between;height:72px}
-.hd__logo img{height:40px;width:auto;max-width:calc(100vw - 96px);display:block}
+.hd__in{gap:24px}
+.hd__logo{flex:0 1 265px;min-width:0}
+.hd__logo img{width:100%;height:auto;display:block}
 .hd__nav{display:none}
 .hd__nav a{font:500 13px/1 var(--rg-font-sans);letter-spacing:.14em;text-transform:uppercase;color:var(--rg-carbon);text-decoration:none;padding:8px 0;border-bottom:2px solid transparent}
 .hd__nav a:hover,.hd__nav a[aria-current="page"]{border-bottom-color:var(--rg-fucsia);color:var(--rg-carbon)}
@@ -139,7 +141,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rg-fucsia);outline-
   .hd__nav{display:flex;align-items:center;gap:32px}
   .hd__burger{display:none}
   .hd__in{height:92px}
-  .hd__logo img{height:52px}
+  .hd__logo{flex-basis:344px}
+  .hd__nav{flex:none}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.door__img img{transition:none}}
 
@@ -216,6 +219,14 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rg-fucsia);outline-
 .rg-list{display:flex;flex-direction:column}
 .rg-item{all:unset;box-sizing:border-box;cursor:pointer;display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:center;padding:12px 0;border-bottom:1px solid var(--arena);transition:opacity .2s}
 .rg-item:hover{opacity:.75}
+.rg-tabs{display:flex;flex-wrap:wrap;gap:0 28px;margin:8px 0 12px;border-bottom:1px solid var(--arena)}
+.rg-tab{all:unset;cursor:pointer;padding:14px 2px 16px;margin-bottom:-1px;border-bottom:2px solid transparent;font:400 13px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--pizarra);white-space:nowrap}
+.rg-tab span{font:300 19px/1 var(--serif);color:var(--fucsia);letter-spacing:0;margin-right:8px}
+.rg-tab:hover{color:var(--carbon)}
+.rg-tab[aria-selected="true"]{color:var(--carbon);border-bottom-color:var(--fucsia)}
+.rg-tab:focus-visible{outline:2px solid var(--fucsia);outline-offset:4px}
+.rg-tabsub{margin:16px 0 8px;font:300 16px/1.6 var(--sans);color:var(--pizarra)}
+.rg-panel .rg-list{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 32px}
 .rg-item__img{width:64px;height:76px;overflow:hidden}
 .rg-item__img img{width:100%;height:100%;object-fit:cover;mix-blend-mode:multiply}
 .rg-item.bg-photo .rg-item__img img,.rg-item__img.bg-photo img{mix-blend-mode:normal}
@@ -270,6 +281,12 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rg-fucsia);outline-
   .rg-aroma__txt{padding:32px 24px 36px}
   .rg-aroma .rg-btn{display:block;text-align:center}
   .rg-cols{grid-template-columns:1fr;gap:24px}
+  .rg-tabs{flex-wrap:nowrap;overflow-x:auto;gap:0 22px;margin:8px -20px 8px;padding:0 20px;scrollbar-width:none}
+  .rg-tabs::-webkit-scrollbar{display:none}
+  .rg-panel .rg-list{grid-template-columns:1fr 1fr;gap:20px 14px;margin-top:12px}
+  .rg-panel .rg-item{grid-template-columns:1fr;gap:8px;border:0;padding:0}
+  .rg-panel .rg-item__img{width:100%;height:190px}
+  .rg-panel .rg-item strong{font-size:17px}
   .rg-col .rg-list{flex-direction:row;overflow-x:auto;gap:10px;scroll-snap-type:x mandatory;margin:12px -20px 0;padding:0 20px 4px}
   .rg-col .rg-item{flex:none;width:136px;grid-template-columns:1fr;gap:8px;border:0;padding:0;scroll-snap-align:start}
   .rg-col .rg-item__img{width:136px;height:160px}
@@ -363,7 +380,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rg-fucsia);outline-
       <div><div class="rg-label">Complementos</div><div class="rg-rule"></div><h3 class="rg-h3" style="font-size:clamp(30px,3.4vw,40px)">Para completar cada espacio</h3></div>
       <a class="rg-link" data-wa="Hola, me gustaría recibir el catálogo completo de decoración para hotel/restaurante." href="#" target="_blank" rel="noopener">Pedir catálogo completo →</a>
     </div>
-    <div class="rg-cols" id="rg-comps"></div>
+    <div class="rg-tabs" id="rg-tabs" role="tablist" aria-label="Categorías de complementos"></div>
+    <div class="rg-panel" id="rg-comps" role="tabpanel" tabindex="0"></div>
   </div>
 
   <div class="rg-wrap">
@@ -471,25 +489,27 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rg-fucsia);outline-
      desc:"Vidrio ámbar soplado con borde ondulado. Luz cálida en mesa, con servicio de recarga mensual.", pres:["Portavelas","Recarga de vela","Servicio mensual por mesa"]}
   ];
   var ESPACIOS = [
-    {n:"01", nombre:"Habitación", items:[
+    {n:"01", nombre:"Amenidades dulces", sub:"Dulces, chocolates y lo que tu cliente pida.", items:[
       {id:"dulce", nombre:"Frasco de dulce de leche", fondo:"rosa", imgs:["img/dulce-leche.jpg","img/dulce-leche-hero.jpg"], alt:"Frasco de dulce de leche con tapa de tela y yute", desc:"Dulce artesanal en frasco de vidrio con tapa de tela. Amenidad de turndown o bienvenida.", pres:["Chico","Mediano","Etiqueta con tu logo"]},
       {id:"macarons", nombre:"Cajitas de macarons", fondo:"rosa", imgs:["img/macarons-hero.jpg","img/macarons-post.jpg"], pos:"72% 55%", alt:"Cajitas de acetato con macarons rosas", desc:"Macarons en caja de acetato con etiqueta colgante.", pres:["3 piezas","6 piezas","Etiqueta personalizada"]},
-      {id:"bienvenida", nombre:"Caja de bienvenida", fondo:"photo", imgs:["img/bienvenida.jpg","img/cajas.jpg"], alt:"Cajas redondas de regalo con botella y snacks", desc:"Botella, snacks y detalles a juego, armados según tu temporada.", pres:["Individual","Pareja","Suite / VIP"]}
+      {id:"frascos", nombre:"Frascos de dulces", fondo:"rosa", imgs:["img/t2.jpg"], alt:"Frascos de vidrio con corcho y dulces", desc:"Recuerdo con corcho, listón y etiqueta para bodas y eventos.", pres:["Por pieza","Etiqueta personalizada"]},
+      {id:"bienvenida-dulces", nombre:"Caja de bienvenida", fondo:"photo", imgs:["img/bienvenida.jpg","img/cajas.jpg"], alt:"Cajas redondas de regalo con botella y snacks", desc:"Caja de bienvenida con dulces, chocolates y snacks, armada a tu gusto.", pres:["Individual","Pareja","Suite / VIP"]}
     ]},
-    {n:"02", nombre:"Baño y spa", items:[
-      {id:"amenidades", nombre:"Canasta de amenidades", fondo:"arena", imgs:["img/h2.jpg"], alt:"Canasta de madera con accesorios de spa", desc:"Esponja, cepillo y accesorios naturales en canasta de madera.", pres:["Básica","Completa"]},
-      {id:"resina", nombre:"Set de baño en resina", fondo:"arena", imgs:["img/resina.jpg"], alt:"Set de baño en resina verde", desc:"Dispensador, jabonera y vaso en resina, en el color de tu interiorismo.", pres:["3 piezas","4 piezas"]},
-      {id:"plumas", nombre:"Florero Plumas", fondo:"hueso", imgs:["img/plumas.jpg","img/plumas-hero.jpg"], alt:"Florero de vidrio artístico turquesa", desc:"Vidrio artístico en degradado turquesa. Pieza de acento.", pres:["Pieza individual"]}
-    ]},
-    {n:"03", nombre:"Restaurante", items:[
+    {n:"02", nombre:"Floreros", sub:"Piezas de acento para mesa, barra, recepción y habitación.", items:[
       {id:"cobre", nombre:"Florero cobre", fondo:"champ", imgs:["img/florero-cobre.jpg"], alt:"Florero alto de acabado cobre", desc:"Florero alto para tallo único en mesa o barra.", pres:["Por pieza","Juego por mesa"]},
       {id:"mercurio", nombre:"Florero mercurio", fondo:"champ", imgs:["img/florero-mercurio.jpg"], alt:"Florero dorado efecto mercurio", desc:"Vidrio con efecto mercurio dorado.", pres:["Por pieza"]},
+      {id:"plumas", nombre:"Florero Plumas", fondo:"hueso", imgs:["img/plumas.jpg","img/plumas-hero.jpg"], alt:"Florero de vidrio artístico turquesa", desc:"Vidrio artístico en degradado turquesa. Pieza de acento.", pres:["Pieza individual"]},
       {id:"cilindros", nombre:"Cilindros de cristal", fondo:"hueso", imgs:["img/cilindros-hero.jpg"], pos:"74% 50%", alt:"Cilindros de cristal en tres alturas", desc:"Base para velas flotantes o arreglos de centro de mesa.", pres:["Chico","Mediano","Alto"]}
     ]},
-    {n:"04", nombre:"Eventos", items:[
-      {id:"frascos", nombre:"Frascos de dulces", fondo:"rosa", imgs:["img/t2.jpg"], alt:"Frascos de vidrio con corcho y dulces", desc:"Recuerdo con corcho, listón y etiqueta para bodas y eventos.", pres:["Por pieza","Etiqueta personalizada"]},
+    {n:"03", nombre:"Baño y spa", sub:"Amenidades para baño, spa y habitación.", items:[
+      {id:"amenidades", nombre:"Canasta de amenidades", fondo:"arena", imgs:["img/h2.jpg"], alt:"Canasta de madera con accesorios de spa", desc:"Esponja, cepillo y accesorios naturales en canasta de madera.", pres:["Básica","Completa"]},
+      {id:"resina", nombre:"Set de baño en resina", fondo:"arena", imgs:["img/resina.jpg"], alt:"Set de baño en resina verde", desc:"Dispensador, jabonera y vaso en resina, en el color de tu interiorismo.", pres:["3 piezas","4 piezas"]},
+      {id:"bienvenida-spa", nombre:"Caja de bienvenida", fondo:"photo", imgs:["img/bienvenida.jpg","img/cajas.jpg"], alt:"Cajas redondas de regalo con botella y snacks", desc:"Caja de bienvenida con amenidades de baño y spa: jabones, sales y detalles para consentir a tu huésped.", pres:["Individual","Pareja","Suite / VIP"]}
+    ]},
+    {n:"04", nombre:"Arreglos y temporada", sub:"Arreglos, eventos y decoración de temporada.", items:[
       {id:"floral", nombre:"Arreglos florales", fondo:"hueso", imgs:["img/floreria.jpg"], alt:"Arreglo floral morado en base de cristal", desc:"Arreglos para recepción, mesas y escenario.", pres:["Centro de mesa","Recepción"]},
-      {id:"navidad", nombre:"Temporada navideña", fondo:"champ", imgs:["img/navidad.jpg"], alt:"Arreglo navideño blanco y dorado", desc:"Arreglos y regalos de Navidad para lobby y habitaciones.", pres:["Arreglo de lobby","Detalle por habitación"]}
+      {id:"navidad", nombre:"Temporada navideña", fondo:"champ", imgs:["img/navidad.jpg"], alt:"Arreglo navideño blanco y dorado", desc:"Arreglos y regalos de Navidad para lobby y habitaciones.", pres:["Arreglo de lobby","Detalle por habitación"]},
+      {id:"bienvenida-eventos", nombre:"Caja de bienvenida", fondo:"photo", imgs:["img/bienvenida.jpg","img/cajas.jpg"], alt:"Cajas redondas de regalo con botella y snacks", desc:"Caja de bienvenida para invitados de boda o evento, con detalles a juego con tu celebración.", pres:["Por invitado","Etiqueta personalizada"]}
     ]}
   ];
 
@@ -507,19 +527,35 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rg-fucsia);outline-
     mosaic.appendChild(b);
   });
 
-  var cols = document.getElementById("rg-comps");
-  ESPACIOS.forEach(function(s){
-    var c = el("div","rg-col"); c.appendChild(el("h4",null,'<span>'+s.n+'</span>'+esc(s.nombre)));
+  var tabs = document.getElementById("rg-tabs"), panel = document.getElementById("rg-comps"), tabBtns = [];
+  function mostrar(k, foco){
+    var g = ESPACIOS[k];
+    tabBtns.forEach(function(t,j){ t.setAttribute("aria-selected", j===k ? "true" : "false"); t.tabIndex = j===k ? 0 : -1; });
+    panel.setAttribute("aria-labelledby", "rg-tab-"+k);
+    panel.innerHTML = "";
+    if(g.sub) panel.appendChild(el("p","rg-tabsub",esc(g.sub)));
     var list = el("div","rg-list");
-    s.items.forEach(function(p){
-      p.tag = s.nombre; TODOS[p.id]=p;
+    g.items.forEach(function(p){
       var b = el("button","rg-item"); b.type="button";
       b.innerHTML='<div class="rg-item__img bg-'+p.fondo+'"><img src="'+p.imgs[0]+'" alt="'+esc(p.alt)+'" loading="lazy" style="object-position:'+(p.pos||"50% 50%")+'"></div><strong>'+esc(p.nombre)+'</strong>';
       b.addEventListener("click",function(){ abrir(p.id); });
       list.appendChild(b);
     });
-    c.appendChild(list); cols.appendChild(c);
+    panel.appendChild(list);
+    if(foco) tabBtns[k].focus();
+  }
+  ESPACIOS.forEach(function(g,k){
+    g.items.forEach(function(p){ p.tag = g.nombre; TODOS[p.id]=p; });
+    var t = el("button","rg-tab",'<span>'+g.n+'</span>'+esc(g.nombre));
+    t.type="button"; t.id="rg-tab-"+k; t.setAttribute("role","tab"); t.setAttribute("aria-controls","rg-comps");
+    t.addEventListener("click",function(){ mostrar(k); });
+    t.addEventListener("keydown",function(e){
+      var n = ESPACIOS.length, d = e.key==="ArrowRight" ? 1 : e.key==="ArrowLeft" ? -1 : 0;
+      if(d){ e.preventDefault(); mostrar((k+d+n)%n, true); }
+    });
+    tabs.appendChild(t); tabBtns.push(t);
   });
+  mostrar(0);
 
   document.querySelectorAll("#detalles [data-wa]").forEach(function(a){ a.href = wa(a.getAttribute("data-wa")); });
 
