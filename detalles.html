@@ -246,10 +246,12 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rg-fucsia);outline-
 .rg-modal__main{position:relative;aspect-ratio:4/5;overflow:hidden}
 .rg-modal__main img{position:absolute;inset:14% 10% 8%;width:80%;height:78%;object-fit:contain;object-position:50% 100%;mix-blend-mode:multiply}
 .rg-modal__main.bg-photo img{inset:0;width:100%;height:100%;object-fit:cover;mix-blend-mode:normal}
+.rg-modal__main.is-corte img{inset:7%;width:86%;height:86%;object-fit:contain;object-position:50% 50%;mix-blend-mode:normal}
 .rg-thumbs{display:flex;gap:10px;flex-wrap:wrap}
 .rg-thumbs button{all:unset;cursor:pointer;width:72px;height:90px;overflow:hidden;outline:2px solid transparent;outline-offset:2px}
 .rg-thumbs button[aria-current="true"]{outline-color:var(--fucsia)}
 .rg-thumbs img{width:100%;height:100%;object-fit:cover;mix-blend-mode:multiply}
+.rg-thumbs button.is-corte img{object-fit:contain;mix-blend-mode:normal;padding:6px;box-sizing:border-box}
 .rg-modal__info{padding:56px 48px 48px 24px;display:flex;flex-direction:column}
 .rg-tag{align-self:flex-start;font:400 13px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;padding:8px 14px;border-radius:999px;background:var(--rosa);color:var(--ciruela)}
 .rg-modal__info h3{margin:0 0 16px;font:300 44px/1.08 var(--serif)}
@@ -513,11 +515,17 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rg-fucsia);outline-
     {n:"04", nombre:"Arreglos y temporada", sub:"Arreglos, eventos y decoración de temporada.", items:[
       {id:"floral", nombre:"Arreglos florales", fondo:"hueso", imgs:["img/floreria.jpg"], alt:"Arreglo floral morado en base de cristal", desc:"Arreglos para recepción, mesas y escenario.", pres:["Centro de mesa","Recepción"]},
       {id:"navidad", nombre:"Temporada navideña", fondo:"champ", imgs:["img/navidad.jpg"], alt:"Arreglo navideño blanco y dorado", desc:"Arreglos y regalos de Navidad para lobby y habitaciones.", pres:["Arreglo de lobby","Detalle por habitación"]},
+      {id:"puerta-navidad", nombre:"Decoración para puerta", fondo:"photo", imgs:["img/puerta-navidad.jpg",{src:"img/puerta-navidad-detalle.jpg",fondo:"hueso"}], alt:"Guirnalda navideña con esferas rojas y doradas enmarcando una puerta", desc:"Guirnalda navideña para marco de puerta: follaje verde con luces cálidas, esferas rojas y doradas y tiras colgantes de esferas. Temporada navideña.", pres:["Marco de puerta completo","Esquina con esferas colgantes","Medida a tu puerta"]},
+      {id:"centro-copa", nombre:"Centro de mesa vertical", fondo:"photo", imgs:["img/centro-copa.jpg",{src:"img/centro-copa-sinfondo.png",fondo:"champ",corte:true}], alt:"Centro de mesa navideño en copa invertida con muñeco de nieve, vela roja y cascada de esferas", desc:"Centro de mesa vertical con esferas y muñeco de nieve: copa invertida con luces cálidas por dentro, vela de pilar arriba, cascada de esferas rojas y doradas y base de peluche. Temporada navideña.", pres:["Por pieza","Con vela de pilar","Colores a pedido"]},
+      {id:"centro-floral", nombre:"Centro de mesa floral navideño", fondo:"photo", imgs:["img/centro-floral.jpg",{src:"img/centro-floral-sinfondo.png",fondo:"champ",corte:true}], alt:"Centro de mesa navideño en forma de flor con pétalos rojos, verdes y de yute, nochebuenas y vela en vaso de cristal", desc:"Centro de mesa floral navideño: pétalos en rojo, verde y yute con bordado dorado, nochebuenas, piñas y esferas alrededor de una vela en vaso de cristal. Temporada navideña.", pres:["Por pieza","Juego por mesa","Con vela en vaso"]},
       {id:"bienvenida-eventos", nombre:"Caja de bienvenida", fondo:"photo", imgs:["img/bienvenida.jpg","img/cajas.jpg"], alt:"Cajas redondas de regalo con botella y snacks", desc:"Caja de bienvenida para invitados de boda o evento, con detalles a juego con tu celebración.", pres:["Por invitado","Etiqueta personalizada"]}
     ]}
   ];
 
   var TODOS = {};
+  /* Una foto puede ser "ruta" (usa el fondo del producto) o {src, fondo, corte} para definir su propio fondo.
+     corte:true = PNG sin fondo: se muestra completo (contain) sobre el fondo claro indicado. */
+  function foto(p,i){ var f=p.imgs[i]; return typeof f==="string" ? {src:f, fondo:p.fondo, corte:false} : {src:f.src, fondo:f.fondo||p.fondo, corte:!!f.corte}; }
   function el(tag, cls, html){ var e=document.createElement(tag); if(cls) e.className=cls; if(html!=null) e.innerHTML=html; return e; }
   function esc(s){ return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];}); }
 
@@ -526,7 +534,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rg-fucsia);outline-
     p.tag = p.linea; TODOS[p.id]=p;
     var b = el("button","rg-tile rg-t"+(i+1)+" bg-"+p.fondo+(p.fondo==="photo"?" rg-tile--photo":"")+(i===0?" rg-tile--big":""));
     b.type="button"; b.setAttribute("aria-label","Ver detalle: "+p.nombre);
-    b.innerHTML='<img src="'+p.imgs[0]+'" alt="'+esc(p.alt)+'" loading="lazy"><div class="rg-tile__cap"><div><small>'+esc(p.linea)+'</small><strong>'+esc(p.nombre)+'</strong></div><span aria-hidden="true">+</span></div>';
+    b.innerHTML='<img src="'+foto(p,0).src+'" alt="'+esc(p.alt)+'" loading="lazy"><div class="rg-tile__cap"><div><small>'+esc(p.linea)+'</small><strong>'+esc(p.nombre)+'</strong></div><span aria-hidden="true">+</span></div>';
     b.addEventListener("click",function(){ abrir(p.id); });
     mosaic.appendChild(b);
   });
@@ -541,7 +549,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rg-fucsia);outline-
     var list = el("div","rg-list");
     g.items.forEach(function(p){
       var b = el("button","rg-item"); b.type="button";
-      b.innerHTML='<div class="rg-item__img bg-'+p.fondo+'"><img src="'+p.imgs[0]+'" alt="'+esc(p.alt)+'" loading="lazy" style="object-position:'+(p.pos||"50% 50%")+'"></div><strong>'+esc(p.nombre)+'</strong>';
+      var f0 = foto(p,0);
+      b.innerHTML='<div class="rg-item__img bg-'+f0.fondo+'"><img src="'+f0.src+'" alt="'+esc(p.alt)+'" loading="lazy" style="object-position:'+(p.pos||"50% 50%")+'"></div><strong>'+esc(p.nombre)+'</strong>';
       b.addEventListener("click",function(){ abrir(p.id); });
       list.appendChild(b);
     });
@@ -565,21 +574,22 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rg-fucsia);outline-
 
   var modal=document.getElementById("rg-modal"), main=document.getElementById("rg-m-main"), mimg=document.getElementById("rg-m-img"), thumbs=document.getElementById("rg-m-thumbs"), last=null;
   function ver(p,i){
-    mimg.src=p.imgs[i]; mimg.alt=p.alt;
+    var f=foto(p,i);
+    main.className="rg-modal__main bg-"+f.fondo+(f.corte?" is-corte":"");
+    mimg.src=f.src; mimg.alt=p.alt;
     thumbs.querySelectorAll("button").forEach(function(t,j){ t.setAttribute("aria-current", j===i ? "true" : "false"); });
   }
   function abrir(id){
     var p=TODOS[id]; last=document.activeElement;
-    main.className="rg-modal__main bg-"+p.fondo;
     document.getElementById("rg-m-tag").textContent=p.tag;
     document.getElementById("rg-m-name").textContent=p.nombre;
     document.getElementById("rg-m-desc").textContent=p.desc;
     document.getElementById("rg-m-pres").innerHTML=p.pres.map(function(x){return "<li>"+esc(x)+"</li>";}).join("");
     document.getElementById("rg-m-wa").href=wa("Hola, me interesa: "+p.nombre);
     thumbs.innerHTML="";
-    if(p.imgs.length>1) p.imgs.forEach(function(src,i){
-      var t=el("button","bg-"+p.fondo); t.type="button"; t.setAttribute("aria-label","Foto "+(i+1));
-      t.innerHTML='<img src="'+src+'" alt=""'+(p.fondo==="photo"?' style="mix-blend-mode:normal"':'')+'>';
+    if(p.imgs.length>1) p.imgs.forEach(function(_,i){
+      var f=foto(p,i), t=el("button","bg-"+f.fondo+(f.corte?" is-corte":"")); t.type="button"; t.setAttribute("aria-label","Foto "+(i+1));
+      t.innerHTML='<img src="'+f.src+'" alt=""'+(f.fondo==="photo"?' style="mix-blend-mode:normal"':'')+'>';
       t.addEventListener("click",function(){ ver(p,i); }); thumbs.appendChild(t);
     });
     ver(p,0);
