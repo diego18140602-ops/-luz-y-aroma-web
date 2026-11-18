@@ -76,6 +76,7 @@ a{color:inherit}
 .slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .slide::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(35,31,38,.9) 0%,rgba(35,31,38,.55) 45%,rgba(35,31,38,.05) 82%)}
 .slide__txt{position:absolute;inset:0;z-index:2;display:flex;align-items:center}
+.slide__txt > .wrap{width:100%}
 .slide__box{max-width:620px;padding-top:70px}
 .slide h1,.slide h2{margin:0;font:500 clamp(42px,5.4vw,76px)/1.02 var(--rg-font-display);color:#fff;text-wrap:balance}
 .slide p.sub{margin:22px 0 0;font-size:19px;color:var(--rg-rosa-polvo);max-width:480px}
@@ -117,6 +118,27 @@ a{color:inherit}
 .prod__txt b{font:600 23px/1.15 var(--rg-font-display)}
 .prod__txt span{margin:4px 0 10px;font-size:14px;color:var(--rg-pizarra);flex:1}
 .prod__txt a{color:var(--rg-fucsia);font-weight:500;font-size:15px;text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
+
+/* Envases */
+.envases{background:var(--rg-rosa-polvo);color:var(--rg-carbon);padding:96px 0 88px}
+.env__intro{margin:12px 0 0;color:var(--rg-pizarra)}
+.env__filtros{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font:500 15px/1 var(--rg-font-sans);min-height:44px;padding:10px 18px;border-radius:999px;border:1px solid var(--rg-ciruela);background:transparent;color:var(--rg-ciruela);cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--rg-ciruela);color:#fff}
+.riel--env{grid-auto-columns:min(260px,66vw)}
+.env{scroll-snap-align:start;display:flex;flex-direction:column}
+.env[hidden]{display:none}
+.env img{width:100%;aspect-ratio:1/1;object-fit:contain;mix-blend-mode:multiply;transition:transform .5s ease}
+.env:hover img{transform:translateY(-6px)}
+.env__txt{padding:6px 4px 0;display:flex;flex-direction:column;gap:2px}
+.env__tag{font:500 12px/1.4 var(--rg-font-sans);letter-spacing:.1em;text-transform:uppercase;color:var(--rg-ciruela)}
+.env__txt b{font:600 24px/1.15 var(--rg-font-display)}
+.env__txt a{color:var(--rg-fucsia);font-weight:500;font-size:15px;text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
+.pasos{list-style:none;margin:40px 0 28px;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px}
+.pasos li{display:flex;gap:16px;align-items:flex-start;border-top:1px solid var(--rg-ciruela);padding-top:16px}
+.pasos b{font:500 40px/1 var(--rg-font-display);color:var(--rg-fucsia)}
+.pasos strong{display:block;font-weight:500;font-size:18px}
+.pasos span{display:block;font-size:15px;color:var(--rg-pizarra)}
 
 /* Bloques partidos */
 .split{display:flex;flex-wrap:wrap;min-height:720px}
@@ -194,6 +216,7 @@ a{color:inherit}
   .slide p.sub{font-size:17px}
   .arrows{display:none}
   .sec{padding:72px 0 80px}
+  .envases{padding:72px 0 64px}
   .split{min-height:0}
   .split__img{min-height:340px}
   .split__txt{padding:64px 24px}
@@ -242,13 +265,23 @@ a{color:inherit}
 <h1 class="sr">Raquel Gutiérrez: velas, decoración navideña, kits de bienvenida y mesas de dulces en Los Cabos. Más de 35 años.</h1>
 
 <section class="hero" id="hero" aria-roledescription="carrusel" aria-label="Lo que hacemos" data-seccion="general">
-  <div class="slide is-on" data-wa-ctx="Hola Raquel, me gustaría conocer los adornos navideños y de temporada disponibles." data-wa-label="Adornos navideños">
-    <img src="img/centro-floral.jpg" alt="Centro de mesa navideño con vela encendida" width="1150" height="943" style="object-position:60% 50%">
+  <div class="slide is-on" data-wa-ctx="Hola Raquel, me gustaría ver el inventario completo de velas." data-wa-label="Pedir velas">
+    <img src="img/envases/portada-envases.jpg" alt="Envases para velas: vidrio tallado rosa, frasco jaula lila, bombonera de cristal, lata marmoleada y cuencos con tapa de madera" width="2400" height="1350" style="object-position:78% 60%">
+    <div class="slide__txt"><div class="wrap"><div class="slide__box">
+      <p class="over">Velas de autor</p>
+      <h2>Tu vela, en el envase que elijas</h2>
+      <p class="sub">Vidrio tallado, latas, cuencos con tapa de madera y cristal, con el aroma de tu hotel.</p>
+      <a class="btn btn--fucsia" data-wa="Hola Raquel, me gustaría ver el inventario completo de velas." href="https://wa.me/526241777607" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.5A8.4 8.4 0 1 1 21 11.5z"/></svg>Pedir inventario de velas</a>
+      <a class="link" href="#envases" style="display:inline-block;margin:18px 0 0 18px">Ver los envases →</a>
+    </div></div></div>
+  </div>
+  <div class="slide" aria-hidden="true" data-wa-ctx="Hola Raquel, me gustaría conocer los adornos navideños y de temporada disponibles." data-wa-label="Adornos navideños">
+    <img loading="lazy" src="img/centro-floral.jpg" alt="Centro de mesa navideño con vela encendida" width="1150" height="943" style="object-position:60% 50%">
     <div class="slide__txt"><div class="wrap"><div class="slide__box">
       <p class="over">Temporada navideña</p>
       <h2>Navidad que se nota desde la entrada</h2>
       <p class="sub">Centros de mesa, coronas y velas de temporada, hechos a pedido.</p>
-      <a class="btn btn--fucsia" data-wa="Hola Raquel, me gustaría conocer los adornos navideños y de temporada disponibles." href="https://wa.me/526241777607" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.5A8.4 8.4 0 1 1 21 11.5z"/></svg>Ver adornos de temporada</a>
+      <a class="btn btn--fucsia" data-wa="Hola Raquel, me gustaría conocer los adornos navideños y de temporada disponibles." href="https://wa.me/526241777607" target="_blank" rel="noopener" tabindex="-1"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.5A8.4 8.4 0 1 1 21 11.5z"/></svg>Ver adornos de temporada</a>
     </div></div></div>
   </div>
   <div class="slide" aria-hidden="true" data-wa-ctx="Hola Raquel, estoy organizando un evento y me gustaría información sobre decoración y detalles." data-wa-label="Cotizar evento">
@@ -261,15 +294,6 @@ a{color:inherit}
     </div></div></div>
   </div>
 
-  <div class="slide" aria-hidden="true" data-wa-ctx="Hola Raquel, me gustaría ver el inventario completo de velas." data-wa-label="Pedir velas">
-    <img loading="lazy" src="img/g1.jpg" alt="Velas LED encendidas en vidrio ámbar" width="880" height="410" style="object-position:70% 50%">
-    <div class="slide__txt"><div class="wrap"><div class="slide__box">
-      <p class="over">Velas de autor</p>
-      <h2>Velas con el aroma de tu hotel</h2>
-      <p class="sub">Aromáticas, de pilar y LED sin flama para habitación, spa y mesa.</p>
-      <a class="btn btn--fucsia" data-wa="Hola Raquel, me gustaría ver el inventario completo de velas." href="https://wa.me/526241777607" target="_blank" rel="noopener" tabindex="-1"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.5A8.4 8.4 0 1 1 21 11.5z"/></svg>Pedir inventario de velas</a>
-    </div></div></div>
-  </div>
   <div class="slide" aria-hidden="true" data-wa-ctx="Hola Raquel, me gustaría cotizar kits de bienvenida o regalos." data-wa-label="Cotizar kits">
     <img src="img/cajas.jpg" alt="Cajas de bienvenida armadas para huéspedes" width="563" height="688" loading="lazy" style="object-position:50% 40%">
     <div class="slide__txt"><div class="wrap"><div class="slide__box">
@@ -283,7 +307,7 @@ a{color:inherit}
     <div class="wrap hd__in">
       <a class="hd__logo" href="index.html" aria-label="Raquel Gutiérrez, inicio"><img src="marca-rg/logos/svg/rg-logo-horizontal-blanco.svg" alt="Raquel Gutiérrez" width="201" height="48"></a>
       <nav class="hd__nav" aria-label="Principal">
-        <a href="detalles.html#velas">Velas</a>
+        <a href="#envases">Velas</a>
         <a href="#temporada">Navidad</a>
         <a href="detalles.html#rg-tabs">Kits de bienvenida</a>
         <a href="#dulces">Mesas de dulces</a>
@@ -299,9 +323,9 @@ a{color:inherit}
   <div class="hero__ctl">
     <div class="wrap">
       <div class="dots" role="group" aria-label="Elegir diapositiva">
-        <button class="dot" type="button" aria-label="Navidad" aria-current="true"></button>
+        <button class="dot" type="button" aria-label="Velas y envases" aria-current="true"></button>
+        <button class="dot" type="button" aria-label="Navidad" aria-current="false"></button>
         <button class="dot" type="button" aria-label="Mesas de dulces" aria-current="false"></button>
-        <button class="dot" type="button" aria-label="Velas" aria-current="false"></button>
         <button class="dot" type="button" aria-label="Kits de bienvenida" aria-current="false"></button>
         <span class="count" id="count">01 / 04</span>
       </div>
@@ -316,7 +340,7 @@ a{color:inherit}
 <div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Menú">
   <div class="menu__top"><img src="marca-rg/logos/svg/rg-logo-horizontal-blanco.svg" alt="Raquel Gutiérrez"><button class="menu__close" id="menu-close" aria-label="Cerrar menú">×</button></div>
   <nav aria-label="Menú móvil">
-    <a href="detalles.html#velas">Velas</a>
+    <a href="#envases">Velas y envases</a>
     <a href="#temporada">Navidad y temporada</a>
     <a href="detalles.html#rg-tabs">Kits de bienvenida</a>
     <a href="#dulces">Mesas de dulces</a>
@@ -336,13 +360,44 @@ a{color:inherit}
     </div>
   </section>
 
+  <section class="envases" id="envases" aria-labelledby="env-t" data-wa-ctx="Hola Raquel, me interesa una vela con mi aroma en uno de sus envases. ¿Me dan información?" data-wa-label="Armar mi vela">
+    <div class="wrap sec__head">
+      <div><p class="over over--ciruela">Colección de envases</p><h2 class="h2 h2--dark" id="env-t">Tu vela, en el envase que elijas</h2><p class="env__intro">Los que tienen tapa también sirven para dulces y recuerdos.</p></div>
+      <div class="env__filtros" role="group" aria-label="Filtrar envases">
+        <button type="button" class="chip" data-filtro="todos" aria-pressed="true">Todos</button>
+        <button type="button" class="chip" data-filtro="vela" aria-pressed="false">Para vela</button>
+        <button type="button" class="chip" data-filtro="tapa" aria-pressed="false">Con tapa</button>
+      </div>
+    </div>
+    <div class="riel riel--env" id="riel-env">
+      <article class="env" data-tipo="vela"><img src="img/envases/vaso-tallado-rosa-claro.jpg" alt="Vaso tallado rosa claro" width="1000" height="1000" loading="lazy"><div class="env__txt"><span class="env__tag">Para vela</span><b>Vaso tallado rosa claro</b><a data-wa="Hola Raquel, me interesa el envase Vaso tallado rosa claro para vela. ¿Qué aromas tienen?" href="https://wa.me/526241777607" target="_blank" rel="noopener">Lo quiero →</a></div></article>
+      <article class="env" data-tipo="vela"><img src="img/envases/vaso-tallado-rosa.jpg" alt="Vaso tallado rosa" width="1000" height="1000" loading="lazy"><div class="env__txt"><span class="env__tag">Para vela</span><b>Vaso tallado rosa</b><a data-wa="Hola Raquel, me interesa el envase Vaso tallado rosa para vela. ¿Qué aromas tienen?" href="https://wa.me/526241777607" target="_blank" rel="noopener">Lo quiero →</a></div></article>
+      <article class="env" data-tipo="tapa"><img src="img/envases/frasco-jaula-lila.jpg" alt="Frasco jaula lila" width="1000" height="1000" loading="lazy"><div class="env__txt"><span class="env__tag">Con tapa · vela o dulces</span><b>Frasco jaula lila</b><a data-wa="Hola Raquel, me interesa el envase Frasco jaula lila (con tapa) para vela o dulces. ¿Me dan información?" href="https://wa.me/526241777607" target="_blank" rel="noopener">Lo quiero →</a></div></article>
+      <article class="env" data-tipo="tapa"><img src="img/envases/bombonera-cristal-estriado.jpg" alt="Bombonera de cristal" width="1000" height="1000" loading="lazy"><div class="env__txt"><span class="env__tag">Con tapa · vela o dulces</span><b>Bombonera de cristal</b><a data-wa="Hola Raquel, me interesa el envase Bombonera de cristal (con tapa) para vela o dulces. ¿Me dan información?" href="https://wa.me/526241777607" target="_blank" rel="noopener">Lo quiero →</a></div></article>
+      <article class="env" data-tipo="tapa"><img src="img/envases/lata-marmoleada-lila.jpg" alt="Lata marmoleada lila" width="1000" height="1000" loading="lazy"><div class="env__txt"><span class="env__tag">Con tapa · vela o dulces</span><b>Lata marmoleada lila</b><a data-wa="Hola Raquel, me interesa el envase Lata marmoleada lila (con tapa) para vela o dulces. ¿Me dan información?" href="https://wa.me/526241777607" target="_blank" rel="noopener">Lo quiero →</a></div></article>
+      <article class="env" data-tipo="tapa"><img src="img/envases/esfera-dorada-tapa-madera.jpg" alt="Media esfera dorada" width="1000" height="1000" loading="lazy"><div class="env__txt"><span class="env__tag">Con tapa · vela o dulces</span><b>Media esfera dorada</b><a data-wa="Hola Raquel, me interesa el envase Media esfera dorada (con tapa) para vela o dulces. ¿Me dan información?" href="https://wa.me/526241777607" target="_blank" rel="noopener">Lo quiero →</a></div></article>
+      <article class="env" data-tipo="tapa"><img src="img/envases/cuenco-salvia-tapa-madera.jpg" alt="Cuenco verde salvia" width="1000" height="1000" loading="lazy"><div class="env__txt"><span class="env__tag">Con tapa · vela o dulces</span><b>Cuenco verde salvia</b><a data-wa="Hola Raquel, me interesa el envase Cuenco verde salvia (con tapa) para vela o dulces. ¿Me dan información?" href="https://wa.me/526241777607" target="_blank" rel="noopener">Lo quiero →</a></div></article>
+      <article class="env" data-tipo="tapa"><img src="img/envases/cuenco-terracota-tapa-madera.jpg" alt="Cuenco terracota" width="1000" height="1000" loading="lazy"><div class="env__txt"><span class="env__tag">Con tapa · vela o dulces</span><b>Cuenco terracota</b><a data-wa="Hola Raquel, me interesa el envase Cuenco terracota (con tapa) para vela o dulces. ¿Me dan información?" href="https://wa.me/526241777607" target="_blank" rel="noopener">Lo quiero →</a></div></article>
+      <article class="env" data-tipo="tapa"><img src="img/envases/lata-mate-lavanda.jpg" alt="Lata mate lavanda" width="1000" height="1000" loading="lazy"><div class="env__txt"><span class="env__tag">Con tapa · vela o dulces</span><b>Lata mate lavanda</b><a data-wa="Hola Raquel, me interesa el envase Lata mate lavanda (con tapa) para vela o dulces. ¿Me dan información?" href="https://wa.me/526241777607" target="_blank" rel="noopener">Lo quiero →</a></div></article>
+      <article class="env" data-tipo="tapa"><img src="img/envases/frasco-mini-tapa-plateada.jpg" alt="Frasco mini con tapa" width="1000" height="1000" loading="lazy"><div class="env__txt"><span class="env__tag">Con tapa · vela o dulces</span><b>Frasco mini con tapa</b><a data-wa="Hola Raquel, me interesa el envase Frasco mini con tapa (con tapa) para vela o dulces. ¿Me dan información?" href="https://wa.me/526241777607" target="_blank" rel="noopener">Lo quiero →</a></div></article>
+    </div>
+    <div class="wrap">
+      <ol class="pasos">
+        <li><b>1</b><div><strong>Elige el envase</strong><span>Vidrio, lata, cerámica o cristal.</span></div></li>
+        <li><b>2</b><div><strong>Elige el aroma</strong><span>Brisa del Pacífico, coco y vainilla, bugambilia, cítricos, copal y madera, entre otros.</span></div></li>
+        <li><b>3</b><div><strong>Agrega tu logo</strong><span>En etiqueta o empaque, para tu hotel, restaurante o evento.</span></div></li>
+      </ol>
+      <a class="btn btn--fucsia" data-wa="Hola Raquel, quiero armar una vela: elegir envase, aroma y logo. ¿Me ayudan?" href="https://wa.me/526241777607" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.5A8.4 8.4 0 1 1 21 11.5z"/></svg>Armar mi vela por WhatsApp</a>
+    </div>
+  </section>
+
   <section class="sec" id="categorias" aria-labelledby="cat-t">
     <div class="wrap sec__head">
       <div><p class="over">Lo que hacemos</p><h2 class="h2" id="cat-t">Detalles que crean ambiente</h2></div>
       <p style="margin:0;font-size:15px;color:var(--rg-arena)">Desliza para ver todo →</p>
     </div>
     <div class="riel riel--cat">
-      <a class="cat" href="detalles.html#velas"><img src="img/velas1.jpg" alt="Velas de pilar en rojos y verde" width="550" height="378" loading="lazy"><div class="cat__txt"><b>Velas</b><span>Aromáticas, de pilar y LED →</span></div></a>
+      <a class="cat" href="#envases"><img src="img/envases/categoria-velas.jpg" alt="Vasos tallados rosa y frasco jaula lila para velas" width="900" height="1200" loading="lazy"><div class="cat__txt"><b>Velas</b><span>En el envase que elijas →</span></div></a>
       <a class="cat" href="#temporada"><img src="img/centro-floral.jpg" alt="Centro de mesa navideño" width="1150" height="943" loading="lazy"><div class="cat__txt"><b>Navidad y temporada</b><span>Hechos a pedido →</span></div></a>
       <a class="cat" href="detalles.html#rg-tabs"><img src="img/bienvenida.jpg" alt="Cajas de bienvenida con botella y snacks" width="563" height="844" loading="lazy"><div class="cat__txt"><b>Kits de bienvenida</b><span>Con tu logo y aroma →</span></div></a>
       <a class="cat" href="detalles.html#rg-tabs"><img src="img/resina.jpg" alt="Set de baño en resina verde" width="900" height="654" loading="lazy"><div class="cat__txt"><b>Amenidades de baño y spa</b><span>Sets de resina y canastas →</span></div></a>
@@ -369,7 +424,7 @@ a{color:inherit}
     </div>
   </section>
 
-  <section class="sec" aria-labelledby="mas-t" style="background:var(--rg-rosa-polvo);color:var(--rg-carbon)">
+  <section class="sec" aria-labelledby="mas-t" style="background:var(--rg-hueso);color:var(--rg-carbon)">
     <div class="wrap sec__head">
       <div><p class="over over--ciruela">Lo más pedido</p><h2 class="h2 h2--dark" id="mas-t">Piezas favoritas de nuestros clientes</h2></div>
       <div class="arrows" style="display:flex">
@@ -378,7 +433,7 @@ a{color:inherit}
       </div>
     </div>
     <div class="riel riel--prod" id="riel-prod">
-      <article class="prod"><img src="img/velas2.jpg" alt="Velas aromáticas con rodajas de cítricos" width="441" height="383" loading="lazy"><div class="prod__txt"><b>Velas aromáticas</b><span>Habitación y spa</span><a data-wa="Hola Raquel, vi Velas aromáticas en su página y me gustaría más información." href="https://wa.me/526241777607" target="_blank" rel="noopener">Preguntar por esta pieza →</a></div></article>
+      <article class="prod"><img src="img/envases/vaso-tallado-rosa.jpg" alt="Vela en vaso tallado rosa" width="1000" height="1000" loading="lazy"><div class="prod__txt"><b>Vela en vaso tallado</b><span>Con el aroma de tu hotel</span><a data-wa="Hola Raquel, vi la vela en vaso tallado en su página y me gustaría más información." href="https://wa.me/526241777607" target="_blank" rel="noopener">Preguntar por esta pieza →</a></div></article>
       <article class="prod"><img src="img/g1.jpg" alt="Velas LED sin flama" width="880" height="410" loading="lazy"><div class="prod__txt"><b>Velas LED sin flama</b><span>Mesa y lobby</span><a data-wa="Hola Raquel, vi Velas LED sin flama en su página y me gustaría más información." href="https://wa.me/526241777607" target="_blank" rel="noopener">Preguntar por esta pieza →</a></div></article>
       <article class="prod"><img class="cover" src="img/bienvenida.jpg" alt="Caja de bienvenida" width="563" height="844" loading="lazy"><div class="prod__txt"><b>Caja de bienvenida</b><span>Individual, pareja o suite</span><a data-wa="Hola Raquel, vi Caja de bienvenida en su página y me gustaría más información." href="https://wa.me/526241777607" target="_blank" rel="noopener">Preguntar por esta pieza →</a></div></article>
       <article class="prod"><img src="img/resina.jpg" alt="Set de baño en resina" width="900" height="654" loading="lazy"><div class="prod__txt"><b>Set de baño en resina</b><span>En el color de tu interiorismo</span><a data-wa="Hola Raquel, vi Set de baño en resina en su página y me gustaría más información." href="https://wa.me/526241777607" target="_blank" rel="noopener">Preguntar por esta pieza →</a></div></article>
@@ -505,6 +560,17 @@ a{color:inherit}
   var x0 = null;
   hero.addEventListener("touchstart", function(e){ x0 = e.touches[0].clientX; }, {passive:true});
   hero.addEventListener("touchend", function(e){ if(x0 === null) return; var dx = e.changedTouches[0].clientX - x0; if(Math.abs(dx) > 50){ go(i + (dx < 0 ? 1 : -1)); play(); } x0 = null; });
+
+  /* Filtros de envases */
+  var chips = document.querySelectorAll(".chip");
+  chips.forEach(function(c){
+    c.addEventListener("click", function(){
+      var f = c.getAttribute("data-filtro");
+      chips.forEach(function(x){ x.setAttribute("aria-pressed", x === c ? "true" : "false"); });
+      document.querySelectorAll(".env").forEach(function(e){ e.hidden = !(f === "todos" || e.getAttribute("data-tipo") === f); });
+      document.getElementById("riel-env").scrollTo({ left: 0 });
+    });
+  });
 
   /* Flechas del riel de productos */
   document.querySelectorAll("[data-riel]").forEach(function(b){
