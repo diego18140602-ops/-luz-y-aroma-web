@@ -26,133 +26,190 @@
 <link rel="apple-touch-icon" href="marca-rg/logos/png/rg-icono-fucsia-180.png">
 <link rel="stylesheet" href="marca-rg/brand.css">
 <style>
-*{box-sizing:border-box}
+*,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--rg-hueso);color:var(--rg-carbon);font:var(--rg-text-body);-webkit-font-smoothing:antialiased}
-img{display:block;max-width:100%}
-a{color:var(--rg-fucsia)}a:hover{color:var(--rg-fucsia-hover)}
-a:focus-visible,button:focus-visible{outline:2px solid var(--rg-fucsia);outline-offset:3px}
-.wrap{max-width:var(--rg-max-width);margin:0 auto;padding:0 20px}
-.sec{padding:64px 0}
-.rg-filete{margin:16px 0 20px}
-.lead{font:var(--rg-text-body-lg);color:var(--rg-pizarra);margin:0;text-wrap:pretty}
-.pend{display:inline-block;font:500 11px/1 var(--rg-font-sans);letter-spacing:.14em;text-transform:uppercase;padding:6px 10px;border:1px dashed currentColor;border-radius:var(--rg-radius-sm)}
+body{margin:0;background:var(--rg-carbon);color:var(--rg-hueso);font:400 17px/1.6 var(--rg-font-sans);-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.over{margin:0 0 12px;font:500 13px/1.4 var(--rg-font-sans);letter-spacing:.18em;text-transform:uppercase;color:var(--rg-champana)}
+.over--ciruela{color:var(--rg-ciruela)}
+.h2{margin:0;font:500 clamp(34px,4vw,56px)/1.05 var(--rg-font-display);color:#fff;text-wrap:balance}
+.h2--dark{color:var(--rg-carbon)}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:14px 26px;border-radius:4px;font:500 16px/1.2 var(--rg-font-sans);text-decoration:none;transition:background .2s,color .2s,border-color .2s}
+.btn svg{flex:none}
+.btn--fucsia{background:var(--rg-fucsia);color:#fff}.btn--fucsia:hover{background:var(--rg-fucsia-hover)}
+.btn--blanco{background:#fff;color:var(--rg-ciruela)}.btn--blanco:hover{background:var(--rg-rosa-polvo)}
+.btn--linea{border:1.5px solid #fff;color:#fff}.btn--linea:hover{background:rgba(255,255,255,.12)}
+.btn--linea-ciruela{border:1.5px solid var(--rg-ciruela);color:var(--rg-ciruela)}
+.link{font-weight:500;color:var(--rg-rosa-polvo);text-decoration:none}.link:hover{text-decoration:underline}
 
-/* Header */
-.hd{position:sticky;top:0;z-index:50;background:rgba(250,247,244,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--rg-arena)}
-.hd__in{display:flex;align-items:center;justify-content:space-between;height:72px}
-.hd__in{gap:24px}
-.hd__logo{flex:0 1 265px;min-width:0}
-.hd__logo img{width:100%;height:auto;display:block}
-.hd__nav{display:none}
-.hd__nav a{font:500 13px/1 var(--rg-font-sans);letter-spacing:.14em;text-transform:uppercase;color:var(--rg-carbon);text-decoration:none;padding:8px 0;border-bottom:2px solid transparent}
-.hd__nav a:hover,.hd__nav a[aria-current="page"]{border-bottom-color:var(--rg-fucsia);color:var(--rg-carbon)}
-.hd__burger{width:44px;height:44px;border:0;background:transparent;cursor:pointer;display:flex;flex-direction:column;justify-content:center;gap:6px;padding:10px}
-.hd__burger span{display:block;height:1.5px;background:var(--rg-carbon)}
-.menu{position:fixed;inset:0;z-index:60;background:var(--rg-hueso);padding:0 20px 32px;display:none;flex-direction:column}
-.menu.is-open{display:flex}
-.menu__top{display:flex;align-items:center;justify-content:space-between;height:72px;margin-bottom:32px}
-.menu__close{width:44px;height:44px;border:0;background:transparent;font:300 34px/1 var(--rg-font-sans);color:var(--rg-carbon);cursor:pointer}
-.menu nav a{display:flex;justify-content:space-between;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--rg-arena);font:300 32px/1.1 var(--rg-font-display);color:var(--rg-carbon);text-decoration:none}
-.menu nav a small{font:400 11px/1 var(--rg-font-sans);letter-spacing:.22em;color:var(--rg-pizarra)}
-.menu .rg-btn{margin-top:auto;text-align:center}
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
-/* Hero */
-.hero{padding:56px 0 40px}
-.hero h1{margin:0;font:300 clamp(46px,8vw,96px)/1 var(--rg-font-display);letter-spacing:-.005em;text-wrap:balance}
-.hero h1 em{font-style:normal;color:var(--rg-ciruela)}
-.hero .lead{max-width:560px;margin-top:24px}
+/* Barra superior */
+.barra{background:var(--rg-fucsia);color:#fff;font-size:14px;text-align:center;padding:9px 16px}
 
-/* Dos puertas */
-.doors{display:grid;grid-template-columns:1fr;gap:16px;padding-bottom:64px}
-.door{position:relative;display:block;min-height:480px;overflow:hidden;color:var(--rg-hueso);text-decoration:none;background:var(--rg-carbon)}
-.door:hover{color:var(--rg-hueso)}
-.door__img{position:absolute;inset:0}
-.door__img img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
-.door:hover .door__img img{transform:scale(1.04)}
-.door::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(35,31,38,.88) 0%,rgba(35,31,38,.25) 55%,rgba(35,31,38,.05) 100%)}
-.door__txt{position:absolute;left:24px;right:24px;bottom:28px;z-index:1}
-.door__n{font:400 13px/1.4 var(--rg-font-sans);letter-spacing:var(--rg-tracking-caps);text-transform:uppercase;color:var(--rg-rosa-polvo)}
-.door h2{margin:0 0 10px;font:300 clamp(36px,4.4vw,52px)/1.04 var(--rg-font-display)}
-.door p{margin:0 0 22px;font:300 16px/1.6 var(--rg-font-sans);color:var(--rg-rosa-polvo);max-width:420px}
-.door__cta{display:inline-flex;align-items:center;gap:12px;font:500 14px/1 var(--rg-font-sans);letter-spacing:.14em;text-transform:uppercase}
-.door__cta i{font-style:normal;display:inline-flex;width:44px;height:44px;border-radius:50%;background:var(--rg-fucsia);align-items:center;justify-content:center;font-size:18px;transition:background .2s}
-.door:hover .door__cta i{background:var(--rg-fucsia-hover)}
-/* Foto pendiente: bloque de color con monograma; la foto (data-src) lo reemplaza solo si existe */
-.ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:var(--rg-arena)}
-.ph--rosa{background:var(--rg-rosa-polvo)}
-.ph__mono{width:22%;max-width:120px;height:auto;opacity:.9}
-.ph img[data-src]{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.ph img[hidden]{display:none}
+/* Header sobre la portada */
+.hd{position:absolute;top:0;left:0;right:0;z-index:20;background:linear-gradient(180deg,rgba(35,31,38,.82) 0%,rgba(35,31,38,.45) 60%,rgba(35,31,38,0) 100%)}
+.hd__in{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:20px;padding-bottom:20px}
+.hd__logo img{height:48px;width:auto}
+.hd__nav{display:flex;align-items:center;gap:6px 24px;flex-wrap:wrap;font-size:15px;font-weight:500}
+.hd__nav a{color:#fff;text-decoration:none;padding:6px 0;border-bottom:1px solid transparent}
+.hd__nav a:hover{border-bottom-color:#fff}
+.hd__nav .sep{width:1px;height:18px;background:rgba(255,255,255,.4)}
+.hd__nav .sec{color:var(--rg-arena);font-weight:400}
+.hd__wa{background:#fff;color:var(--rg-carbon);text-decoration:none;font-weight:500;font-size:15px;padding:11px 18px;min-height:44px;display:inline-flex;align-items:center;gap:8px;border-radius:4px}
+.hd__burger{display:none;width:48px;height:48px;border:0;background:transparent;color:#fff;cursor:pointer;align-items:center;justify-content:center}
+.menu{position:fixed;inset:0;z-index:60;background:var(--rg-carbon);padding:20px 24px 32px;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .3s ease;visibility:hidden}
+.menu.is-open{transform:none;visibility:visible}
+.menu__top{display:flex;align-items:center;justify-content:space-between}
+.menu__top img{height:40px;width:auto}
+.menu__close{width:48px;height:48px;border:0;background:transparent;color:#fff;font-size:34px;cursor:pointer}
+.menu nav{display:flex;flex-direction:column;margin:32px 0 auto}
+.menu nav a{color:#fff;text-decoration:none;font:500 30px/1.2 var(--rg-font-display);padding:12px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+.menu nav a.sec{font-size:22px;color:var(--rg-arena)}
 
-/* Cifras */
-.cifras{padding:64px 0}
-.cifras .rg-overline{color:var(--rg-rosa-polvo)}
-.cifras__grid{display:grid;grid-template-columns:1fr 1fr;gap:32px 24px;margin-top:32px}
-.cifra--sola{display:grid;grid-template-columns:1fr;gap:12px;align-items:end;border:0;padding:0}
-.cifra--sola b{font-size:clamp(88px,14vw,160px);margin:0}
-.cifra--sola span{font:300 clamp(24px,3vw,34px)/1.25 var(--rg-font-display);color:var(--rg-hueso);max-width:620px;text-wrap:balance}
-.cifra{border-top:1px solid rgba(246,227,239,.3);padding-top:18px}
-.cifra b{display:block;font:300 clamp(48px,6vw,72px)/1 var(--rg-font-display);color:var(--rg-hueso);margin-bottom:10px}
-.cifra b .pend{font-size:11px;vertical-align:middle;color:var(--rg-rosa-polvo)}
-.cifra span{font:300 15px/1.5 var(--rg-font-sans);color:var(--rg-rosa-polvo)}
+/* Portada deslizante */
+.hero{position:relative;height:clamp(600px,88vh,820px);background:var(--rg-carbon);overflow:hidden}
+.slide{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .9s ease,visibility 0s linear .9s}
+.slide.is-on{opacity:1;visibility:visible;transition:opacity .9s ease}
+.slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.slide::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(35,31,38,.9) 0%,rgba(35,31,38,.55) 45%,rgba(35,31,38,.05) 82%)}
+.slide__txt{position:absolute;inset:0;z-index:2;display:flex;align-items:center}
+.slide__box{max-width:620px;padding-top:70px}
+.slide h1,.slide h2{margin:0;font:500 clamp(42px,5.4vw,76px)/1.02 var(--rg-font-display);color:#fff;text-wrap:balance}
+.slide p.sub{margin:22px 0 0;font-size:19px;color:var(--rg-rosa-polvo);max-width:480px}
+.slide .btn{margin-top:32px}
+.hero__ctl{position:absolute;left:0;right:0;bottom:32px;z-index:5}
+.hero__ctl .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.dots{display:flex;align-items:center;gap:10px}
+.dot{height:4px;width:22px;border:0;padding:0;border-radius:2px;background:rgba(255,255,255,.45);cursor:pointer;transition:width .3s,background .3s}
+.dot[aria-current="true"]{width:44px;background:#fff}
+.count{margin-left:6px;font-size:14px;letter-spacing:.08em;color:var(--rg-arena)}
+.arrows{display:flex;gap:10px}
+.arrow{width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.6);background:rgba(35,31,38,.35);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.arrow:hover{background:rgba(35,31,38,.6)}
+.arrow--ciruela{border-color:var(--rg-ciruela);background:transparent;color:var(--rg-ciruela)}
+.arrow--ciruela-lleno{border:0;background:var(--rg-ciruela);color:#fff}
 
-/* Sobre */
-.sobre{display:grid;grid-template-columns:1fr;gap:40px;align-items:center}
-.sobre__img{position:relative;aspect-ratio:4/5;overflow:hidden}
-.sobre p.lead+p{margin:16px 0 0;font:300 16px/1.65 var(--rg-font-sans);color:var(--rg-pizarra)}
-.sobre .rg-btn{margin-top:32px}
+/* Franja */
+.franja{border-bottom:1px solid var(--rg-pizarra)}
+.franja .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px 32px;padding-top:26px;padding-bottom:26px;font-size:15px;color:var(--rg-arena)}
+.franja b{font-weight:500;color:var(--rg-champana)}
 
-/* Testimonios */
-.testi{background:var(--rg-rosa-polvo)}
-.testi__grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:40px}
-.quote{background:var(--rg-hueso);padding:32px 28px;display:flex;flex-direction:column;gap:24px;margin:0}
-.quote::before{content:"“";font:300 64px/.6 var(--rg-font-display);color:var(--rg-fucsia);height:24px}
-.quote blockquote{margin:0;font:300 24px/1.3 var(--rg-font-display);color:var(--rg-carbon)}
-.quote figcaption{margin-top:auto;border-top:1px solid var(--rg-arena);padding-top:16px;font:400 14px/1.5 var(--rg-font-sans);color:var(--rg-pizarra)}
-.quote figcaption strong{display:block;font:500 13px/1.4 var(--rg-font-sans);letter-spacing:.14em;text-transform:uppercase;color:var(--rg-carbon)}
+/* Rieles deslizantes */
+.sec{padding:96px 0 104px}
+.sec__head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px}
+.riel{margin-top:40px;display:grid;grid-auto-flow:column;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 max(24px,calc((100% - 1152px)/2));padding:0 max(24px,calc((100% - 1152px)/2)) 14px;scrollbar-width:thin;scrollbar-color:var(--rg-pizarra) transparent}
+.riel--cat{grid-auto-columns:min(320px,78vw)}
+.riel--prod{grid-auto-columns:min(280px,72vw)}
+.cat{scroll-snap-align:start;position:relative;height:440px;border-radius:6px;overflow:hidden;text-decoration:none;color:#fff;background:var(--rg-pizarra)}
+.cat img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.cat:hover img{transform:scale(1.04)}
+.cat::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(35,31,38,0) 45%,rgba(35,31,38,.9) 100%)}
+.cat__txt{position:absolute;left:22px;right:22px;bottom:22px;z-index:2}
+.cat__txt b{display:block;font:600 28px/1.1 var(--rg-font-display)}
+.cat__txt span{display:block;margin-top:6px;font-size:14px;color:var(--rg-rosa-polvo)}
+.prod{scroll-snap-align:start;background:#fff;border-radius:6px;overflow:hidden;color:var(--rg-carbon);display:flex;flex-direction:column}
+.prod img{width:100%;height:300px;object-fit:contain;background:#fff}
+.prod img.cover{object-fit:cover}
+.prod__txt{padding:16px 18px 20px;display:flex;flex-direction:column;flex:1}
+.prod__txt b{font:600 23px/1.15 var(--rg-font-display)}
+.prod__txt span{margin:4px 0 10px;font-size:14px;color:var(--rg-pizarra);flex:1}
+.prod__txt a{color:var(--rg-fucsia);font-weight:500;font-size:15px;text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
 
-/* Cierre + footer */
-.cierre{text-align:left}
-.cierre__in{display:grid;grid-template-columns:1fr;gap:24px;align-items:end}
-.ft{background:var(--rg-ciruela);color:var(--rg-arena);padding:56px 0 104px}
-.ft__grid{display:grid;grid-template-columns:1fr;gap:32px}
-.ft img{height:64px;width:auto;max-width:100%}
-.ft p{margin:12px 0 0;font:300 14px/1.7 var(--rg-font-sans)}
-.ft h3{margin:0 0 12px;font:400 12px/1.4 var(--rg-font-sans);letter-spacing:var(--rg-tracking-caps);text-transform:uppercase;color:var(--rg-hueso)}
-.ft nav{display:flex;flex-direction:column;gap:10px}
-.ft a{color:var(--rg-arena);text-decoration:none;font:300 15px/1.5 var(--rg-font-sans)}
-.ft a:hover{color:var(--rg-hueso)}
-.ft__wa{font:400 18px/1.4 var(--rg-font-sans)!important;color:var(--rg-hueso)!important}
-.ft__legal{margin-top:40px;padding-top:20px;border-top:1px solid rgba(246,227,239,.25);font:300 13px/1.5 var(--rg-font-sans);color:var(--rg-rosa-polvo)}
-.wa-float{position:fixed;right:16px;bottom:20px;z-index:40;width:56px;height:56px;border-radius:50%;background:var(--rg-fucsia);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 22px rgba(110,18,87,.35);transition:background .2s}
-.wa-float:hover{background:var(--rg-fucsia-hover)}
+/* Bloques partidos */
+.split{display:flex;flex-wrap:wrap;min-height:720px}
+.split--rev{flex-wrap:wrap-reverse}
+.split__img{flex:1 1 560px;min-height:420px;position:relative}
+.split__img > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.split__txt{flex:1 1 460px;padding:88px clamp(24px,6vw,96px);display:flex;flex-direction:column;justify-content:center}
+.split__txt p.cuerpo{margin:18px 0 0;color:var(--rg-arena);max-width:480px}
+.pers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:32px}
+.pers div{border-top:1px solid var(--rg-champana);padding-top:12px}
+.pers b{display:block;font:500 26px/1.2 var(--rg-font-display);color:#fff}
+.pers span{display:block;margin-top:2px;font-size:14px;color:var(--rg-rosa-polvo)}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+.mosaico{flex:1 1 600px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:350px;gap:6px}
+.mosaico img{width:100%;height:100%;object-fit:cover}
 
-@media (min-width:760px){
-  .wrap{padding:0 40px}
-  .sec{padding:96px 0}
-  .hero{padding:88px 0 56px}
-  .doors{grid-template-columns:1fr 1fr;gap:20px;padding-bottom:96px}
-  .door{min-height:620px}
-  .door__txt{left:40px;right:40px;bottom:40px}
-  .cifras{padding:88px 0}
-  .cifras__grid{grid-template-columns:repeat(4,1fr)}
-  .sobre{grid-template-columns:1fr 1.1fr;gap:80px}
-  .testi__grid{grid-template-columns:repeat(3,1fr);gap:20px}
-  .cierre__in{grid-template-columns:1.4fr 1fr;gap:64px}
-  .cierre__in>div:last-child{justify-self:end}
-  .ft{padding:72px 0 40px}
-  .ft__grid{grid-template-columns:1.4fr 1fr 1fr}
+/* Sobre Raquel */
+.raquel{background:#2E2833}
+.raquel .wrap{display:flex;flex-wrap:wrap;gap:64px;align-items:center;padding-top:104px;padding-bottom:104px}
+.raquel__foto{flex:1 1 340px;max-width:460px;aspect-ratio:4/5;background:var(--rg-ciruela);border-radius:6px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;text-align:center;padding:32px}
+.raquel__foto img{width:110px;height:auto;filter:brightness(0) invert(1)}
+.raquel__foto p{margin:0;font:500 22px/1.3 var(--rg-font-display);color:var(--rg-rosa-polvo)}
+.raquel__txt{flex:1 1 440px;min-width:0}
+.cifra{margin:0;font:500 clamp(96px,12vw,168px)/.9 var(--rg-font-display);color:var(--rg-champana)}
+.raquel__txt h2{margin:12px 0 0;font:500 clamp(32px,3.4vw,46px)/1.1 var(--rg-font-display);color:#fff}
+.raquel__txt p.cuerpo{margin:20px 0 0;color:var(--rg-arena);font-size:18px;max-width:560px}
+
+/* Temporada */
+.temporada{position:relative;min-height:560px;display:flex;align-items:center;overflow:hidden}
+.temporada > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.temporada::before{content:"";position:absolute;inset:0;background:rgba(35,31,38,.62);z-index:1}
+.temporada__txt{position:relative;z-index:2;max-width:760px;margin:0 auto;padding:96px 24px;text-align:center}
+.temporada__txt p.cuerpo{margin:18px 0 0;color:var(--rg-rosa-polvo);font-size:18px}
+.temporada .btn{margin-top:30px}
+
+/* Espacios (secundaria) */
+.espacios{background:var(--rg-arena);color:var(--rg-carbon)}
+.espacios .wrap{display:flex;flex-wrap:wrap;gap:40px;align-items:center;padding-top:72px;padding-bottom:72px}
+.espacios__txt{flex:1 1 320px}
+.espacios__txt h2{margin:0;font:500 clamp(30px,3vw,40px)/1.1 var(--rg-font-display)}
+.espacios__txt p{margin:12px 0 0;color:var(--rg-pizarra)}
+.espacios__txt a{display:inline-block;margin-top:16px;color:var(--rg-ciruela);font-weight:500}
+.espacios__fotos{flex:2 1 520px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.espacios__fotos img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:4px}
+
+/* Cierre y pie */
+.cierre{background:var(--rg-fucsia)}
+.cierre .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:28px;padding-top:80px;padding-bottom:80px}
+.cierre h2{margin:0;max-width:680px;font:500 clamp(34px,3.6vw,52px)/1.05 var(--rg-font-display);color:#fff}
+.ft{background:var(--rg-carbon);color:var(--rg-arena);font-size:15px}
+.ft__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:32px;padding-top:56px;padding-bottom:24px}
+.ft__grid img{height:52px;width:auto}
+.ft h3{margin:0 0 10px;font:500 13px/1.4 var(--rg-font-sans);letter-spacing:.12em;text-transform:uppercase;color:var(--rg-champana)}
+.ft p{margin:0}
+.ft a{color:var(--rg-hueso);text-decoration:none}.ft a:hover{text-decoration:underline}
+.ft__links{line-height:2}
+.ft__legal{border-top:1px solid var(--rg-pizarra);padding-top:16px;padding-bottom:26px;font-size:14px}
+
+/* WhatsApp flotante */
+.wa-float{position:fixed;right:16px;bottom:20px;z-index:50;display:flex;align-items:center;gap:10px;background:#fff;color:var(--rg-carbon);text-decoration:none;font-weight:500;font-size:15px;padding:8px 18px 8px 8px;border-radius:999px;box-shadow:0 6px 20px rgba(35,31,38,.28);transition:opacity .3s,transform .3s}
+.wa-float span.ic{width:38px;height:38px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center}
+.wa-float.is-hidden{opacity:0;transform:translateY(20px);pointer-events:none}
+
+:focus-visible{outline:2px solid var(--rg-champana);outline-offset:3px}
+
+@media (max-width:1080px){
+  .hd__nav,.hd__wa{display:none}
+  .hd__burger{display:inline-flex}
 }
-@media (min-width:1000px){
-  .wrap{padding:0 80px}
-  .hd__nav{display:flex;align-items:center;gap:32px}
-  .hd__burger{display:none}
-  .hd__in{height:92px}
-  .hd__logo{flex-basis:344px}
-  .hd__nav{flex:none}
+@media (max-width:720px){
+  .hd__logo img{height:38px}
+  .slide::after{background:linear-gradient(180deg,rgba(35,31,38,.25) 0%,rgba(35,31,38,.55) 40%,rgba(35,31,38,.92) 100%)}
+  .slide__txt{align-items:flex-end;padding-bottom:110px}
+  .slide__box{padding-top:0}
+  .slide p.sub{font-size:17px}
+  .arrows{display:none}
+  .sec{padding:72px 0 80px}
+  .split{min-height:0}
+  .split__img{min-height:340px}
+  .split__txt{padding:64px 24px}
+  .mosaico{grid-auto-rows:180px}
+  .pers{grid-template-columns:1fr}
+  .raquel .wrap{gap:40px;padding-top:72px;padding-bottom:72px}
+  .raquel__foto{flex-basis:auto;width:100%;aspect-ratio:16/10}
+  .espacios__fotos{grid-template-columns:1fr 1fr}
+  .espacios__fotos img:nth-child(3){display:none}
+  .wa-float .txt{display:none}
+  .wa-float{padding:8px}
 }
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.door__img img{transition:none}}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .slide,.slide.is-on,.cat img,.menu{transition:none}
+}
 </style>
 <script type="application/ld+json">
 {
@@ -180,165 +237,305 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rg-fucsia);outline-
 </head>
 <body>
 
-<header class="hd">
-  <div class="wrap hd__in">
-    <a class="hd__logo" href="index.html" aria-label="Raquel Gutiérrez, inicio"><img src="marca-rg/logos/svg/rg-logo-header.svg" alt="Raquel Gutiérrez"></a>
-    <nav class="hd__nav" aria-label="Principal">
-      <a href="detalles.html">Detalles y suministros</a>
-      <a href="espacios.html">Espacios</a>
-      <a href="#nosotras">Nosotras</a>
-      <a class="rg-btn rg-btn--primario" data-wa="Hola, me gustaría información de Raquel Gutiérrez." href="https://wa.me/526241777607" target="_blank" rel="noopener" style="border:0;padding:14px 24px;color:#fff">Contacto</a>
-    </nav>
-    <button class="hd__burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+<div class="barra">Temporada navideña: aparta con tiempo tu pedido para hotel o restaurante · Entrega en todo Los Cabos</div>
+
+<h1 class="sr">Raquel Gutiérrez: velas, decoración navideña, kits de bienvenida y mesas de dulces en Los Cabos. Más de 35 años.</h1>
+
+<section class="hero" id="hero" aria-roledescription="carrusel" aria-label="Lo que hacemos" data-seccion="general">
+  <div class="slide is-on" data-wa-ctx="Hola Raquel, me gustaría conocer los adornos navideños y de temporada disponibles." data-wa-label="Adornos navideños">
+    <img src="img/centro-floral.jpg" alt="Centro de mesa navideño con vela encendida" width="1150" height="943" style="object-position:60% 50%">
+    <div class="slide__txt"><div class="wrap"><div class="slide__box">
+      <p class="over">Temporada navideña</p>
+      <h2>Navidad que se nota desde la entrada</h2>
+      <p class="sub">Centros de mesa, coronas y velas de temporada, hechos a pedido.</p>
+      <a class="btn btn--fucsia" data-wa="Hola Raquel, me gustaría conocer los adornos navideños y de temporada disponibles." href="https://wa.me/526241777607" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.5A8.4 8.4 0 1 1 21 11.5z"/></svg>Ver adornos de temporada</a>
+    </div></div></div>
   </div>
-</header>
+  <div class="slide" aria-hidden="true" data-wa-ctx="Hola Raquel, estoy organizando un evento y me gustaría información sobre decoración y detalles." data-wa-label="Cotizar evento">
+    <img src="img/macarons-hero.jpg" alt="Cajitas de macarons con etiqueta personalizada" width="1920" height="1080" loading="lazy" style="object-position:80% 50%">
+    <div class="slide__txt"><div class="wrap"><div class="slide__box">
+      <p class="over">Mesas de dulces</p>
+      <h2>Dulces y recuerdos para tu evento</h2>
+      <p class="sub">Macarons, frascos, latas y miel con etiqueta personalizada.</p>
+      <a class="btn btn--fucsia" data-wa="Hola Raquel, estoy organizando un evento y me gustaría información sobre decoración y detalles." href="https://wa.me/526241777607" target="_blank" rel="noopener" tabindex="-1"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.5A8.4 8.4 0 1 1 21 11.5z"/></svg>Cotizar mi evento</a>
+    </div></div></div>
+  </div>
+
+  <div class="slide" aria-hidden="true" data-wa-ctx="Hola Raquel, me gustaría ver el inventario completo de velas." data-wa-label="Pedir velas">
+    <img loading="lazy" src="img/g1.jpg" alt="Velas LED encendidas en vidrio ámbar" width="880" height="410" style="object-position:70% 50%">
+    <div class="slide__txt"><div class="wrap"><div class="slide__box">
+      <p class="over">Velas de autor</p>
+      <h2>Velas con el aroma de tu hotel</h2>
+      <p class="sub">Aromáticas, de pilar y LED sin flama para habitación, spa y mesa.</p>
+      <a class="btn btn--fucsia" data-wa="Hola Raquel, me gustaría ver el inventario completo de velas." href="https://wa.me/526241777607" target="_blank" rel="noopener" tabindex="-1"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.5A8.4 8.4 0 1 1 21 11.5z"/></svg>Pedir inventario de velas</a>
+    </div></div></div>
+  </div>
+  <div class="slide" aria-hidden="true" data-wa-ctx="Hola Raquel, me gustaría cotizar kits de bienvenida o regalos." data-wa-label="Cotizar kits">
+    <img src="img/cajas.jpg" alt="Cajas de bienvenida armadas para huéspedes" width="563" height="688" loading="lazy" style="object-position:50% 40%">
+    <div class="slide__txt"><div class="wrap"><div class="slide__box">
+      <p class="over">Kits de bienvenida</p>
+      <h2>Una bienvenida que el huésped se lleva a casa</h2>
+      <p class="sub">Armados con tu logo, tu aroma y tu empaque.</p>
+      <a class="btn btn--fucsia" data-wa="Hola Raquel, me gustaría cotizar kits de bienvenida o regalos." href="https://wa.me/526241777607" target="_blank" rel="noopener" tabindex="-1"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.5A8.4 8.4 0 1 1 21 11.5z"/></svg>Cotizar kits de bienvenida</a>
+    </div></div></div>
+  </div>
+  <header class="hd">
+    <div class="wrap hd__in">
+      <a class="hd__logo" href="index.html" aria-label="Raquel Gutiérrez, inicio"><img src="marca-rg/logos/svg/rg-logo-horizontal-blanco.svg" alt="Raquel Gutiérrez" width="201" height="48"></a>
+      <nav class="hd__nav" aria-label="Principal">
+        <a href="detalles.html#velas">Velas</a>
+        <a href="#temporada">Navidad</a>
+        <a href="detalles.html#rg-tabs">Kits de bienvenida</a>
+        <a href="#dulces">Mesas de dulces</a>
+        <a href="#hoteles">Hoteles y restaurantes</a>
+        <span class="sep" aria-hidden="true"></span>
+        <a class="sec" href="espacios.html">Espacios</a>
+      </nav>
+      <a class="hd__wa" data-wa="Hola Raquel, vi su página web y me gustaría recibir información sobre sus servicios." href="https://wa.me/526241777607" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.5A8.4 8.4 0 1 1 21 11.5z"/></svg>WhatsApp</a>
+      <button class="hd__burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </header>
+
+  <div class="hero__ctl">
+    <div class="wrap">
+      <div class="dots" role="group" aria-label="Elegir diapositiva">
+        <button class="dot" type="button" aria-label="Navidad" aria-current="true"></button>
+        <button class="dot" type="button" aria-label="Mesas de dulces" aria-current="false"></button>
+        <button class="dot" type="button" aria-label="Velas" aria-current="false"></button>
+        <button class="dot" type="button" aria-label="Kits de bienvenida" aria-current="false"></button>
+        <span class="count" id="count">01 / 04</span>
+      </div>
+      <div class="arrows">
+        <button class="arrow" type="button" id="prev" aria-label="Anterior"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+        <button class="arrow" type="button" id="next" aria-label="Siguiente"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+      </div>
+    </div>
+  </div>
+</section>
+
 <div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Menú">
-  <div class="menu__top"><img src="marca-rg/logos/svg/rg-logo-header.svg" alt="Raquel Gutiérrez" style="height:38px;width:auto;max-width:calc(100vw - 96px)"><button class="menu__close" id="menu-close" aria-label="Cerrar menú">×</button></div>
+  <div class="menu__top"><img src="marca-rg/logos/svg/rg-logo-horizontal-blanco.svg" alt="Raquel Gutiérrez"><button class="menu__close" id="menu-close" aria-label="Cerrar menú">×</button></div>
   <nav aria-label="Menú móvil">
-    <a href="index.html">Inicio <small>01</small></a>
-    <a href="detalles.html">Detalles y suministros <small>02</small></a>
-    <a href="espacios.html">Espacios <small>03</small></a>
-    <a href="#nosotras">Nosotras <small>04</small></a>
-    <a href="#contacto">Contacto <small>05</small></a>
+    <a href="detalles.html#velas">Velas</a>
+    <a href="#temporada">Navidad y temporada</a>
+    <a href="detalles.html#rg-tabs">Kits de bienvenida</a>
+    <a href="#dulces">Mesas de dulces</a>
+    <a href="#hoteles">Hoteles y restaurantes</a>
+    <a class="sec" href="espacios.html">Espacios · remodelación</a>
   </nav>
-  <a class="rg-btn rg-btn--primario" data-wa="Hola, me gustaría información de Raquel Gutiérrez." href="https://wa.me/526241777607" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
+  <a class="btn btn--fucsia" data-wa="Hola Raquel, vi su página web y me gustaría recibir información sobre sus servicios." href="https://wa.me/526241777607" target="_blank" rel="noopener" style="justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.5A8.4 8.4 0 1 1 21 11.5z"/></svg>Escribir por WhatsApp</a>
 </div>
 
 <main id="top">
-  <section class="hero">
+  <section class="franja" aria-label="Por qué Raquel">
     <div class="wrap">
-      <div class="rg-overline">Los Cabos, BCS · Desde hace más de 35 años</div>
-      <span class="rg-filete" aria-hidden="true"></span>
-      <h1>Celebramos momentos. <em>Transformamos espacios.</em></h1>
-      <p class="lead">Detalles para hoteles, restaurantes y eventos. Renovación de departamentos con toque moderno. Elige por dónde empezar.</p>
+      <span><b>Más de 35 años</b> en Los Cabos</span>
+      <span>Velas, decoración y kits con tu logo, aroma y empaque</span>
+      <span>Compra única o membresía de temporada</span>
+      <span>San José del Cabo · Cabo San Lucas · Corredor</span>
     </div>
   </section>
 
-  <section class="wrap doors" aria-label="Nuestras dos líneas">
-    <a class="door" href="detalles.html">
-      <div class="door__img"><img src="img/bath.jpg" alt="Vela ámbar encendida sobre barra de travertino con vista al mar" fetchpriority="high"></div>
-      <div class="door__txt">
-        <div class="door__n">01 · Detalles y suministros</div>
-        <span class="rg-filete" aria-hidden="true"></span>
-        <h2>Celebramos momentos</h2>
-        <p>Velas aromáticas, decoración, amenidades y regalos para hoteles, restaurantes y eventos. Con tu marca.</p>
-        <span class="door__cta"><i aria-hidden="true">→</i>Ver detalles</span>
-      </div>
-    </a>
-    <a class="door" href="espacios.html">
-      <div class="door__img ph"><img class="ph__mono" src="marca-rg/logos/svg/rg-monograma.svg" alt=""><img data-src="img/espacios-portada.jpg" alt="Departamento renovado por Raquel Gutiérrez" hidden></div>
-      <div class="door__txt">
-        <div class="door__n">02 · Espacios</div>
-        <span class="rg-filete" aria-hidden="true"></span>
-        <h2>Transformamos espacios</h2>
-        <p>Renovamos departamentos y espacios con un toque moderno. Mira el antes y el después.</p>
-        <span class="door__cta"><i aria-hidden="true">→</i>Ver espacios</span>
-      </div>
-    </a>
+  <section class="sec" id="categorias" aria-labelledby="cat-t">
+    <div class="wrap sec__head">
+      <div><p class="over">Lo que hacemos</p><h2 class="h2" id="cat-t">Detalles que crean ambiente</h2></div>
+      <p style="margin:0;font-size:15px;color:var(--rg-arena)">Desliza para ver todo →</p>
+    </div>
+    <div class="riel riel--cat">
+      <a class="cat" href="detalles.html#velas"><img src="img/velas1.jpg" alt="Velas de pilar en rojos y verde" width="550" height="378" loading="lazy"><div class="cat__txt"><b>Velas</b><span>Aromáticas, de pilar y LED →</span></div></a>
+      <a class="cat" href="#temporada"><img src="img/centro-floral.jpg" alt="Centro de mesa navideño" width="1150" height="943" loading="lazy"><div class="cat__txt"><b>Navidad y temporada</b><span>Hechos a pedido →</span></div></a>
+      <a class="cat" href="detalles.html#rg-tabs"><img src="img/bienvenida.jpg" alt="Cajas de bienvenida con botella y snacks" width="563" height="844" loading="lazy"><div class="cat__txt"><b>Kits de bienvenida</b><span>Con tu logo y aroma →</span></div></a>
+      <a class="cat" href="detalles.html#rg-tabs"><img src="img/resina.jpg" alt="Set de baño en resina verde" width="900" height="654" loading="lazy"><div class="cat__txt"><b>Amenidades de baño y spa</b><span>Sets de resina y canastas →</span></div></a>
+      <a class="cat" href="#dulces"><img src="img/frascos-corcho.jpg" alt="Frascos de dulces con corcho" width="1000" height="1250" loading="lazy"><div class="cat__txt"><b>Mesas de dulces</b><span>Recuerdos para eventos →</span></div></a>
+      <a class="cat" href="detalles.html#rg-tabs"><img src="img/florero-mercurio.jpg" alt="Florero dorado efecto mercurio" width="1200" height="1500" loading="lazy"><div class="cat__txt"><b>Decoración y floreros</b><span>Lobby, mesa y eventos →</span></div></a>
+    </div>
   </section>
 
-  <section class="rg-banda-oscura cifras" aria-label="Trayectoria en cifras">
+  <section class="split" id="hoteles" aria-labelledby="hot-t" style="background:var(--rg-ciruela)" data-wa-ctx="Hola Raquel, represento a un hotel en Los Cabos y me gustaría conocer su catálogo de amenidades y kits de bienvenida." data-wa-label="Cotizar para mi hotel">
+    <div class="split__img"><img src="img/bienvenida.jpg" alt="Cajas de bienvenida para huéspedes de hotel" width="563" height="844" loading="lazy"></div>
+    <div class="split__txt">
+      <p class="over">Para hoteles y restaurantes</p>
+      <h2 class="h2" id="hot-t">Tu marca, en cada detalle que toca el huésped</h2>
+      <div class="pers">
+        <div><b>Logo</b><span>En vela, etiqueta y caja</span></div>
+        <div><b>Aroma</b><span>El que identifique a tu hotel</span></div>
+        <div><b>Empaque</b><span>Colores y listones de tu marca</span></div>
+      </div>
+      <p class="cuerpo" style="color:var(--rg-rosa-polvo)">Compra una sola vez o contrata una membresía mensual o por temporada para renovar velas y decoración durante el año.</p>
+      <div class="btns">
+        <a class="btn btn--blanco" data-wa="Hola Raquel, represento a un hotel en Los Cabos y me gustaría conocer su catálogo de amenidades y kits de bienvenida." href="https://wa.me/526241777607" target="_blank" rel="noopener">Cotizar para mi hotel</a>
+        <a class="btn btn--linea" data-wa="Hola Raquel, tengo un restaurante y me gustaría información sobre velas, decoración y amenidades." href="https://wa.me/526241777607" target="_blank" rel="noopener">Cotizar para mi restaurante</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="mas-t" style="background:var(--rg-rosa-polvo);color:var(--rg-carbon)">
+    <div class="wrap sec__head">
+      <div><p class="over over--ciruela">Lo más pedido</p><h2 class="h2 h2--dark" id="mas-t">Piezas favoritas de nuestros clientes</h2></div>
+      <div class="arrows" style="display:flex">
+        <button class="arrow arrow--ciruela" type="button" data-riel="prod" data-dir="-1" aria-label="Piezas anteriores"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+        <button class="arrow arrow--ciruela-lleno" type="button" data-riel="prod" data-dir="1" aria-label="Siguientes piezas"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+      </div>
+    </div>
+    <div class="riel riel--prod" id="riel-prod">
+      <article class="prod"><img src="img/velas2.jpg" alt="Velas aromáticas con rodajas de cítricos" width="441" height="383" loading="lazy"><div class="prod__txt"><b>Velas aromáticas</b><span>Habitación y spa</span><a data-wa="Hola Raquel, vi Velas aromáticas en su página y me gustaría más información." href="https://wa.me/526241777607" target="_blank" rel="noopener">Preguntar por esta pieza →</a></div></article>
+      <article class="prod"><img src="img/g1.jpg" alt="Velas LED sin flama" width="880" height="410" loading="lazy"><div class="prod__txt"><b>Velas LED sin flama</b><span>Mesa y lobby</span><a data-wa="Hola Raquel, vi Velas LED sin flama en su página y me gustaría más información." href="https://wa.me/526241777607" target="_blank" rel="noopener">Preguntar por esta pieza →</a></div></article>
+      <article class="prod"><img class="cover" src="img/bienvenida.jpg" alt="Caja de bienvenida" width="563" height="844" loading="lazy"><div class="prod__txt"><b>Caja de bienvenida</b><span>Individual, pareja o suite</span><a data-wa="Hola Raquel, vi Caja de bienvenida en su página y me gustaría más información." href="https://wa.me/526241777607" target="_blank" rel="noopener">Preguntar por esta pieza →</a></div></article>
+      <article class="prod"><img src="img/resina.jpg" alt="Set de baño en resina" width="900" height="654" loading="lazy"><div class="prod__txt"><b>Set de baño en resina</b><span>En el color de tu interiorismo</span><a data-wa="Hola Raquel, vi Set de baño en resina en su página y me gustaría más información." href="https://wa.me/526241777607" target="_blank" rel="noopener">Preguntar por esta pieza →</a></div></article>
+      <article class="prod"><img class="cover" src="img/miel-recuerdo.jpg" alt="Frascos de miel con listón" width="1000" height="1250" loading="lazy"><div class="prod__txt"><b>Frascos de miel</b><span>Recuerdo para eventos</span><a data-wa="Hola Raquel, vi Frascos de miel en su página y me gustaría más información." href="https://wa.me/526241777607" target="_blank" rel="noopener">Preguntar por esta pieza →</a></div></article>
+      <article class="prod"><img src="img/g2.jpg" alt="Velas de pilar texturizadas" width="500" height="500" loading="lazy"><div class="prod__txt"><b>Pilares texturizados</b><span>Acento de color para lobby</span><a data-wa="Hola Raquel, vi Pilares texturizados en su página y me gustaría más información." href="https://wa.me/526241777607" target="_blank" rel="noopener">Preguntar por esta pieza →</a></div></article>
+      <article class="prod"><img class="cover" src="img/florero-mercurio.jpg" alt="Florero efecto mercurio" width="1200" height="1500" loading="lazy"><div class="prod__txt"><b>Florero mercurio</b><span>Decoración de mesa</span><a data-wa="Hola Raquel, vi Florero mercurio en su página y me gustaría más información." href="https://wa.me/526241777607" target="_blank" rel="noopener">Preguntar por esta pieza →</a></div></article>
+      <article class="prod"><img class="cover" src="img/lata-dorada.jpg" alt="Latas doradas con tapa" width="1000" height="1250" loading="lazy"><div class="prod__txt"><b>Latas con tapa</b><span>Dulces o vela de amenidad</span><a data-wa="Hola Raquel, vi Latas con tapa en su página y me gustaría más información." href="https://wa.me/526241777607" target="_blank" rel="noopener">Preguntar por esta pieza →</a></div></article>
+    </div>
+  </section>
+
+  <section class="split split--rev" id="dulces" aria-labelledby="dul-t" data-wa-ctx="Hola Raquel, estoy organizando un evento y me gustaría información sobre decoración y detalles." data-wa-label="Cotizar mi evento">
+    <div class="split__txt" style="flex-basis:440px">
+      <p class="over">Eventos, bodas y empresas</p>
+      <h2 class="h2" id="dul-t">Mesas de dulces y recuerdos que tus invitados se llevan</h2>
+      <p class="cuerpo">Frascos, latas, macarons y miel con etiqueta personalizada, a juego con tu celebración.</p>
+      <div class="btns"><a class="btn btn--fucsia" data-wa="Hola Raquel, estoy organizando un evento y me gustaría información sobre decoración y detalles." href="https://wa.me/526241777607" target="_blank" rel="noopener">Cotizar mi evento</a></div>
+    </div>
+    <div class="mosaico">
+      <img src="img/frascos-corcho.jpg" alt="Frascos de dulces con corcho" width="1000" height="1250" loading="lazy">
+      <img src="img/miel-recuerdo.jpg" alt="Frascos de miel con listón y cucharita" width="1000" height="1250" loading="lazy">
+      <img src="img/lata-dorada.jpg" alt="Latas doradas con tapa" width="1000" height="1250" loading="lazy">
+      <img src="img/macarons-hero.jpg" alt="Cajitas de macarons" width="1920" height="1080" loading="lazy" style="object-position:72% 50%">
+    </div>
+  </section>
+
+  <section class="raquel" id="raquel" aria-labelledby="raq-t">
     <div class="wrap">
-      <div class="rg-overline">Trayectoria</div>
-      <span class="rg-filete" aria-hidden="true"></span>
-      <div class="cifras__grid">
-        <div class="cifra"><b>35+</b><span>años creando en Los Cabos</span></div>
-        <div class="cifra"><b><span class="pend">Pendiente</span></b><span>hoteles y restaurantes atendidos</span></div>
-        <div class="cifra"><b><span class="pend">Pendiente</span></b><span>espacios renovados</span></div>
-        <div class="cifra"><b><span class="pend">Pendiente</span></b><span>eventos ambientados</span></div>
+      <div class="raquel__foto"><img src="marca-rg/logos/svg/rg-monograma.svg" alt="" aria-hidden="true" width="110" height="109"><p>Más de 35 años en Los Cabos</p></div>
+      <div class="raquel__txt">
+        <p class="cifra">35+</p>
+        <h2 id="raq-t">años creando ambiente en Los Cabos</h2>
+        <p class="cuerpo">Raquel Gutiérrez ha visto crecer la zona hotelera, conoce a los proveedores, sabe qué aguanta el clima y cómo se recibe a un huésped. Esa experiencia está en cada vela, cada adorno y cada kit que hace.</p>
       </div>
     </div>
   </section>
 
-  <section class="sec" id="nosotras">
-    <div class="wrap sobre">
-      <div class="sobre__img"><div class="ph ph--rosa"><img class="ph__mono" src="marca-rg/logos/svg/rg-monograma.svg" alt=""><img data-src="img/lucia-raquel.jpg" alt="Raquel Gutiérrez, fundadora" hidden></div></div>
-      <div>
-        <div class="rg-overline">Sobre nosotras</div>
-        <span class="rg-filete" aria-hidden="true"></span>
-        <h2 class="rg-titulo" style="text-wrap:balance">Detrás de cada detalle está Raquel Gutiérrez</h2>
-        <p class="lead" style="margin-top:20px">Más de 35 años creando y personalizando detalles para hoteles, empresas y celebraciones en Los Cabos.</p>
-        <p>Hoy esa trayectoria también diseña y construye espacios. Te escuchamos, proponemos y nos encargamos de todo.</p>
-        <a class="rg-btn rg-btn--secundario" data-wa="Hola Raquel, me gustaría platicar sobre un proyecto." href="https://wa.me/526241777607" target="_blank" rel="noopener">Hablemos de tu proyecto</a>
-      </div>
+  <section class="temporada" id="temporada" aria-labelledby="nav-t" data-wa-ctx="Hola Raquel, me gustaría conocer los adornos navideños y de temporada disponibles." data-wa-label="Adornos navideños">
+    <img src="img/centro-floral.jpg" alt="Centro de mesa navideño con vela encendida" width="1150" height="943" loading="lazy">
+    <div class="temporada__txt">
+      <p class="over">Temporada navideña</p>
+      <h2 class="h2" id="nav-t">Que la Navidad se note desde la entrada</h2>
+      <p class="cuerpo">Coronas, centros de mesa y velas de temporada, hechos a pedido. Pide con tiempo para tu hotel, restaurante o casa.</p>
+      <a class="btn btn--blanco" data-wa="Hola Raquel, me gustaría conocer los adornos navideños y de temporada disponibles." href="https://wa.me/526241777607" target="_blank" rel="noopener">Ver adornos de temporada</a>
     </div>
   </section>
 
-  <section class="sec testi" aria-labelledby="testi-t">
+  <section class="espacios" id="espacios" aria-labelledby="esp-t" data-wa-ctx="Hola Raquel, me gustaría obtener más información sobre la remodelación de mi departamento." data-wa-label="Remodelar mi depa">
     <div class="wrap">
-      <div class="rg-overline" style="color:var(--rg-ciruela)">Testimonios</div>
-      <span class="rg-filete" aria-hidden="true"></span>
-      <h2 class="rg-titulo" id="testi-t">Lo que dicen nuestros clientes</h2>
-      <div class="testi__grid">
-        <figure class="quote"><blockquote><span class="pend">Pendiente</span> Testimonio de un hotel o restaurante.</blockquote><figcaption><strong>Nombre</strong>Cargo · Hotel</figcaption></figure>
-        <figure class="quote"><blockquote><span class="pend">Pendiente</span> Testimonio de una renovación de espacio.</blockquote><figcaption><strong>Nombre</strong>Propietario · Departamento</figcaption></figure>
-        <figure class="quote"><blockquote><span class="pend">Pendiente</span> Testimonio de un evento.</blockquote><figcaption><strong>Nombre</strong>Evento · Fecha</figcaption></figure>
+      <div class="espacios__txt">
+        <p class="over over--ciruela">Raquel Gutiérrez Espacios</p>
+        <h2 id="esp-t">También transformamos departamentos</h2>
+        <p>Remodelación y decoración para dueños en Los Cabos.</p>
+        <a href="espacios.html">Conocer Espacios →</a>
+      </div>
+      <div class="espacios__fotos">
+        <img src="img/depa1-sala-despues.jpg" alt="Departamento decorado en Villa Emmanuel" width="1800" height="1201" loading="lazy">
+        <img src="img/depa2-sala-despues.jpg" alt="Departamento remodelado en San Charbel" width="1800" height="1201" loading="lazy">
+        <img src="img/depa3-terraza-despues.jpg" alt="Terraza de departamento en San Charbel" width="896" height="599" loading="lazy">
       </div>
     </div>
   </section>
 
-  <section class="sec cierre" id="contacto">
-    <div class="wrap cierre__in">
-      <div>
-        <div class="rg-overline">Contacto</div>
-        <span class="rg-filete" aria-hidden="true"></span>
-        <h2 class="rg-titulo" style="font:var(--rg-text-display);text-wrap:balance">Cuéntanos qué necesitas. Lo resolvemos contigo.</h2>
-      </div>
-      <div><a class="rg-btn rg-btn--primario" data-wa="Hola, me gustaría información de Raquel Gutiérrez." href="https://wa.me/526241777607" target="_blank" rel="noopener">Escríbenos por WhatsApp</a></div>
+  <section class="cierre" id="contacto" aria-labelledby="cie-t">
+    <div class="wrap">
+      <h2 id="cie-t">Cuéntanos qué necesitas. Te contesta Raquel.</h2>
+      <a class="btn btn--blanco" data-wa="Hola Raquel, vi su página web y me gustaría recibir información sobre sus servicios." href="https://wa.me/526241777607" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.5A8.4 8.4 0 1 1 21 11.5z"/></svg>Escribir por WhatsApp</a>
     </div>
   </section>
 </main>
 
 <footer class="ft">
-  <div class="wrap">
-    <div class="ft__grid">
-      <div>
-        <img src="marca-rg/logos/svg/rg-logo-horizontal-blanco.svg" alt="Raquel Gutiérrez · Proyectos, Construcción, Decoración">
-        <p>Los Cabos, Baja California Sur, México</p>
-      </div>
-      <div>
-        <h3>Explora</h3>
-        <nav aria-label="Pie de página">
-          <a href="detalles.html">Detalles y suministros</a>
-          <a href="espacios.html">Espacios</a>
-          <a href="#nosotras">Nosotras</a>
-        </nav>
-      </div>
-      <div>
-        <h3>Contacto</h3>
-        <a class="ft__wa" data-wa="Hola, me gustaría información de Raquel Gutiérrez." href="https://wa.me/526241777607" target="_blank" rel="noopener">WhatsApp +52 624 177 7607</a>
-      </div>
-    </div>
-    <div class="ft__legal">© <span id="year">2026</span> Raquel Gutiérrez. Todos los derechos reservados.</div>
+  <div class="wrap ft__grid">
+    <div><img src="marca-rg/logos/svg/rg-logo-horizontal-blanco.svg" alt="Raquel Gutiérrez" width="218" height="52"><p style="margin-top:14px">Más de 35 años en Los Cabos.</p></div>
+    <div><h3>Productos</h3><p class="ft__links"><a href="detalles.html#velas">Velas</a><br><a href="#temporada">Navidad y temporada</a><br><a href="detalles.html#rg-tabs">Kits de bienvenida</a><br><a href="#dulces">Mesas de dulces</a><br><a href="espacios.html">Espacios</a></p></div>
+    <div><h3>Contacto</h3><p class="ft__links"><a data-wa="Hola Raquel, vi su página web y me gustaría recibir información sobre sus servicios." href="https://wa.me/526241777607" target="_blank" rel="noopener">WhatsApp +52 624 177 7607</a><br><a href="mailto:luciaraqueldos02@yahoo.com.mx">luciaraqueldos02@yahoo.com.mx</a></p></div>
+    <div><h3>Zona de servicio</h3><p>San José del Cabo, Cabo San Lucas y Corredor Turístico, Baja California Sur.</p></div>
   </div>
+  <div class="wrap ft__legal">© <span id="year">2026</span> Raquel Gutiérrez. Todos los derechos reservados.</div>
 </footer>
 
-<a class="wa-float" data-wa="Hola, me gustaría información de Raquel Gutiérrez." href="https://wa.me/526241777607" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
-  <svg width="26" height="26" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.5-.3.4c-.1.1-.2.3 0 .5.1.2.6 1 1.3 1.6.9.8 1.7 1.1 1.9 1.2.2.1.4.1.5-.1l.7-.9c.2-.2.3-.2.5-.1l1.9.9c.2.1.4.2.4.3.1.1.1.6-.1 1.3z"/></svg>
+<a class="wa-float" id="wa-float" data-wa="Hola Raquel, vi su página web y me gustaría recibir información sobre sus servicios." href="https://wa.me/526241777607" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+  <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.5-.3.4c-.1.1-.2.3 0 .5.1.2.6 1 1.3 1.6.9.8 1.7 1.1 1.9 1.2.2.1.4.1.5-.1l.7-.9c.2-.2.3-.2.5-.1l1.9.9c.2.1.4.2.4.3.1.1.1.6-.1 1.3z"/></svg></span>
+  <span class="txt" id="wa-float-txt">¿Te ayudo?</span>
 </a>
 
 <script>
 (function(){
   var WA_NUMBER = "526241777607";
-  document.querySelectorAll("[data-wa]").forEach(function(a){
-    a.href = "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(a.getAttribute("data-wa"));
-  });
+  function waUrl(t){ return "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(t); }
+  document.querySelectorAll("[data-wa]").forEach(function(a){ a.href = waUrl(a.getAttribute("data-wa")); });
+
+  /* Menú móvil */
   var menu = document.getElementById("menu"), burger = document.getElementById("burger");
-  function toggle(open){
-    menu.classList.toggle("is-open", open);
-    burger.setAttribute("aria-expanded", open);
-    document.body.style.overflow = open ? "hidden" : "";
-  }
+  function toggle(open){ menu.classList.toggle("is-open", open); burger.setAttribute("aria-expanded", open); document.body.style.overflow = open ? "hidden" : ""; }
   burger.addEventListener("click", function(){ toggle(true); });
   document.getElementById("menu-close").addEventListener("click", function(){ toggle(false); });
   menu.querySelectorAll("nav a").forEach(function(a){ a.addEventListener("click", function(){ toggle(false); }); });
   document.addEventListener("keydown", function(e){ if(e.key === "Escape") toggle(false); });
   document.getElementById("year").textContent = new Date().getFullYear();
-  document.querySelectorAll("img[data-src]").forEach(function(img){
-    var probe = new Image();
-    probe.onload = function(){ img.src = img.getAttribute("data-src"); img.hidden = false; };
-    probe.src = img.getAttribute("data-src");
+
+  /* Portada deslizante */
+  var hero = document.getElementById("hero");
+  var slides = hero.querySelectorAll(".slide"), dots = hero.querySelectorAll(".dot"), count = document.getElementById("count");
+  var i = 0, timer = null, reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function go(n){
+    i = (n + slides.length) % slides.length;
+    slides.forEach(function(s, k){
+      var on = k === i;
+      s.classList.toggle("is-on", on);
+      s.setAttribute("aria-hidden", on ? "false" : "true");
+      s.querySelectorAll("a").forEach(function(a){ if(on) a.removeAttribute("tabindex"); else a.setAttribute("tabindex", "-1"); });
+    });
+    dots.forEach(function(d, k){ d.setAttribute("aria-current", k === i ? "true" : "false"); });
+    count.textContent = "0" + (i + 1) + " / 0" + slides.length;
+    if (heroVisible) setFloat(slides[i]);
+  }
+  function play(){ if(reduce) return; stop(); timer = setInterval(function(){ go(i + 1); }, 6000); }
+  function stop(){ if(timer) clearInterval(timer); timer = null; }
+  dots.forEach(function(d, k){ d.addEventListener("click", function(){ go(k); play(); }); });
+  document.getElementById("next").addEventListener("click", function(){ go(i + 1); play(); });
+  document.getElementById("prev").addEventListener("click", function(){ go(i - 1); play(); });
+  hero.addEventListener("mouseenter", stop); hero.addEventListener("mouseleave", play);
+  hero.addEventListener("focusin", stop); hero.addEventListener("focusout", play);
+  var x0 = null;
+  hero.addEventListener("touchstart", function(e){ x0 = e.touches[0].clientX; }, {passive:true});
+  hero.addEventListener("touchend", function(e){ if(x0 === null) return; var dx = e.changedTouches[0].clientX - x0; if(Math.abs(dx) > 50){ go(i + (dx < 0 ? 1 : -1)); play(); } x0 = null; });
+
+  /* Flechas del riel de productos */
+  document.querySelectorAll("[data-riel]").forEach(function(b){
+    b.addEventListener("click", function(){
+      var r = document.getElementById("riel-" + b.getAttribute("data-riel"));
+      r.scrollBy({ left: Number(b.getAttribute("data-dir")) * 300, behavior: reduce ? "auto" : "smooth" });
+    });
   });
+
+  /* Botón flotante: toma el mensaje de la sección visible */
+  var fl = document.getElementById("wa-float"), flTxt = document.getElementById("wa-float-txt");
+  var GENERAL = fl.getAttribute("data-wa"), heroVisible = true;
+  function setFloat(el){
+    var msg = el && el.getAttribute("data-wa-ctx"), label = el && el.getAttribute("data-wa-label");
+    fl.href = waUrl(msg || GENERAL);
+    flTxt.textContent = label || "¿Te ayudo?";
+  }
+  if ("IntersectionObserver" in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(!en.isIntersecting) return;
+        if(en.target === hero){ heroVisible = true; setFloat(slides[i]); }
+        else if(en.target.tagName === "FOOTER"){ fl.classList.add("is-hidden"); }
+        else { heroVisible = false; fl.classList.remove("is-hidden"); setFloat(en.target); }
+      });
+    }, { rootMargin: "-45% 0px -45% 0px" });
+    io.observe(hero);
+    document.querySelectorAll("main > section, footer").forEach(function(s){ io.observe(s); });
+    new IntersectionObserver(function(es){ es.forEach(function(e){ fl.classList.toggle("is-hidden", e.isIntersecting); }); }).observe(document.querySelector("footer"));
+  }
+  play();
 })();
 </script>
 </body>
