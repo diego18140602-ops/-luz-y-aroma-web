@@ -1,33 +1,32 @@
-# Proyecto: sitio web de Lucía & María
+# Proyecto: sitio web de Raquel Gutiérrez
 
-La marca **Luz y Aroma** se mudó a **Lucía & María** (Proyectos · Construcción · Decoración, más de 35 años, Los Cabos). Detrás de ambas está Lucía Raquel. Todo trabajo nuevo en esta carpeta usa la identidad de Lucía & María.
+Marca **Raquel Gutiérrez** · Proyectos · Construcción · Decoración · Más de 35 años · Los Cabos, BCS.
+(Antes se llamó Luz y Aroma y luego Lucía & María; todo trabajo nuevo usa la identidad de Raquel Gutiérrez.)
+
+Sitio oficial: **https://raqueldecoracion.com** (canónico, sin www; www.raqueldecoracion.com también responde).
 
 ## Antes de diseñar o editar
-1. Lee `marca/README.md` (manual de marca) y usa `marca/brand.css` (variables `--lm-*`).
-2. Logos solo de `marca/logos/` — nunca redibujar ni recolorear el logo.
-3. Tipografías: Cormorant Garamond + Jost (archivos en `marca/fuentes/`).
+1. Usa `marca-rg/brand.css` (variables `--rg-*`) y lee `marca-rg/README.md`.
+2. Logos solo de `marca-rg/logos/` — nunca redibujar ni recolorear el logo.
+3. Tipografías: Cormorant Garamond + Jost (archivos en `marca-rg/fuentes/`).
 4. Jerarquía de cada sección: etiqueta en mayúsculas → filete fucsia → titular serif → texto → botón fucsia.
+5. Enlaces, imágenes, CSS y JS siempre con rutas relativas. Las únicas URLs absolutas permitidas son las de SEO (`canonical`, `og:*`, `twitter:*`, JSON-LD, `sitemap.xml`, `robots.txt`) y siempre con `https://raqueldecoracion.com`.
 
 ## Estructura
-- `index.html` — portada nueva de Lucía & María (dos puertas). `detalles.html` y `espacios.html` son las dos líneas de negocio.
-- `index-luz-y-aroma.html` — respaldo de la página anterior; no enlazada.
-- Vista de diseño: las 3 páginas llevan `noindex` y contenido de ejemplo (testimonios, cifras, proyecto). Quitar `noindex` cuando todo sea real.
-- `img/` — fotos actuales (de Luz y Aroma). Fotos nuevas: nombres cortos, sin espacios ni acentos.
-- `marca/` — identidad de Lucía & María (logos, fuentes, tokens, manual).
-- `Dockerfile` — no tocar (nginx sirve la carpeta tal cual).
+- `index.html` — portada (dos puertas). `detalles.html` y `espacios.html` son las dos líneas de negocio.
+- `img/` — fotos de productos y espacios. Nombres cortos, sin espacios ni acentos. `img/og-raquel-gutierrez.jpg` es la imagen al compartir el enlace.
+- `marca-rg/` — identidad vigente (logos SVG y PNG, fuentes, tokens).
+- `sitemap.xml` y `robots.txt` — si agregas una página, súmala al sitemap.
+- `index-luz-y-aroma.html` y `marca/` — respaldo de marcas anteriores; quedan en el repo pero NO se publican (`.dockerignore`).
+- `Dockerfile` — nginx sirve la carpeta tal cual. `.dockerignore` define qué no se sube al servidor.
 
 ## Publicación
-Repo GitHub `diego18140602-ops/-luz-y-aroma-web` (rama main) → EasyPanel (VPS Hostinger, proyecto daizen-web, servicio web) publica solo vía webhook. Hoy en daizen.mx (prueba). Flujo: editar aquí → Commit + Push en GitHub Desktop → se publica.
+Repo GitHub `diego18140602-ops/-luz-y-aroma-web` (rama main) → EasyPanel en VPS Hostinger (proyecto `daizen-web`, servicio `web`, puerto 80) → https://raqueldecoracion.com.
+Flujo: editar aquí → Commit + Push en GitHub Desktop → en EasyPanel, servicio `web` → Implementar (si el webhook no lo hace solo).
+DNS y HTTPS ya están configurados en EasyPanel; no se tocan desde el repo.
 
-## Pendiente de migración (en este orden)
-- [x] Identidad de marca en `marca/`
-- [ ] Contenido: textos de servicios Proyectos / Construcción / Decoración, sobre Lucía Raquel, testimonios
-- [ ] Fotos de proyectos reales de construcción y decoración en `img/`
-- [x] `index.html`, `detalles.html`, `espacios.html` con la nueva marca (vista de diseño)
-- [ ] Fotos pendientes: img/lucia-raquel.jpg, fotos "antes" de depa1/depa2 (img/depaN-*-antes.jpg, opcionales), img/hero-velas.mp4 (opcional)
-- [ ] Contenido real: testimonios, cifras, proyecto; luego quitar noindex
-- [ ] Revisar del index viejo lo que falte migrar: `<title>`, meta description, `og:*`, logo del header y footer, textos "Luz y Aroma", mensajes de WhatsApp, colores y tipografías → `marca/brand.css`, favicon → `marca/logos/svg/lm-icono-fucsia.svg`
-- [ ] Dominio propio: actualizar `canonical`, `og:url` y `og:image` (hoy apuntan a github.io)
-- [ ] Renombrar repo y carpeta a `lucia-y-maria-web` (ver nota abajo)
-
-Nota: renombrar la carpeta en Finder rompe el enlace de GitHub Desktop hasta que se use "Locate…"; renombrar el repo en GitHub requiere actualizar el webhook/fuente en EasyPanel. Por eso se deja para el final.
+## Pendientes
+- [ ] Contenido real: testimonios y cifras (hoy dicen "Pendiente" en la portada).
+- [ ] Fotos pendientes: `img/lucia-raquel.jpg` (foto de Raquel), fotos "antes" de los departamentos (`img/depaN-*-antes.jpg`, opcionales), `img/hero-velas.mp4` (opcional).
+- [ ] Fotos reales de las piezas navideñas (hoy son imágenes de referencia).
+- [ ] Renombrar repo y carpeta a `raquel-gutierrez-web` (requiere "Locate…" en GitHub Desktop y actualizar la fuente en EasyPanel).

@@ -1,0 +1,12 @@
+# Archivos del repo que no deben publicarse en el servidor
+.git
+.gitattributes
+.nojekyll
+.dockerignore
+Dockerfile
+CLAUDE.md
+README.md
+**/.DS_Store
+# Respaldo de la marca anterior y marca vieja (no se usan en el sitio)
+index-luz-y-aroma.html
+marca/

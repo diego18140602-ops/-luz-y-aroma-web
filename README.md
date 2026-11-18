@@ -1,10 +1,9 @@
-# Lucía & María — sitio web
+# Raquel Gutiérrez — sitio web
 
 Proyectos · Construcción · Decoración · Más de 35 años · Los Cabos, BCS
 
-- Manual de marca: [`marca/README.md`](marca/README.md)
-- Estilos de marca: [`marca/brand.css`](marca/brand.css)
-- Logos: [`marca/logos/`](marca/logos/)
-- Instrucciones de trabajo y pendientes: [`CLAUDE.md`](CLAUDE.md)
+Sitio: https://raqueldecoracion.com
 
-> En migración desde Luz y Aroma: la identidad ya es Lucía & María; `index.html` se actualiza al final.
+- Estilos de marca: [`marca-rg/brand.css`](marca-rg/brand.css)
+- Logos: [`marca-rg/logos/`](marca-rg/logos/)
+- Instrucciones de trabajo, publicación y pendientes: [`CLAUDE.md`](CLAUDE.md)

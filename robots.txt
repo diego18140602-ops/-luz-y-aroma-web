@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /index-luz-y-aroma.html
+
+Sitemap: https://raqueldecoracion.com/sitemap.xml
