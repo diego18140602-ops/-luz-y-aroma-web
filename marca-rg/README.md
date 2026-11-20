@@ -64,4 +64,4 @@ Cercana y experta. Habla de **espacios, no de obra**: "Diseñamos y construimos 
 
 ## Fotografía y anuncios
 
-Fotos reales de proyectos terminados, luz natural, tonos cálidos. Antes/después como formato estrella. Anuncio tipo: foto a sangre + bloque hueso o ciruela con la jerarquía del logo + botón "Agenda tu visita" + logo horizontal o ícono en esquina. Contacto (WhatsApp 624 177 7607) siempre fuera del logo, en el pie.
+Fotos reales de proyectos terminados, luz natural, tonos cálidos. Antes/después como formato estrella. Anuncio tipo: foto a sangre + bloque hueso o ciruela con la jerarquía del logo + botón "Agenda tu visita" + logo horizontal o ícono en esquina. Contacto (WhatsApp 624 119 8718) siempre fuera del logo, en el pie.
