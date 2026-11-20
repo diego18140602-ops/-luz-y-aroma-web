@@ -1,0 +1,103 @@
+/* ==========================================================
+   RAQUEL GUTIÉRREZ — piezas comunes del sitio
+   Tonos claros (A crema por defecto · B rosa palo con ?tema=rosa),
+   barra superior, encabezado, menú móvil, pie, WhatsApp flotante
+   y selector de tono. Se usa en index, detalles y espacios.
+   ========================================================== */
+
+:root,:root[data-tema="crema"]{
+  --f1:#FBF7F0;   /* fondo base */
+  --f2:#F3EADC;   /* banda alterna */
+  --f3:#E9DCC7;   /* banda profunda, pie */
+  --tarjeta:#FFFFFF;
+  --linea:#E2D3BD;
+  --t1:#2B2430;   /* texto principal */
+  --t2:#5A5163;   /* texto secundario */
+  --acento:#6E1257; /* ciruela del logo */
+  --boton:#B8198E; --boton-hover:#9C1479;
+  --oro:#B08A4E;  /* sólo líneas y números grandes */
+  --scrim:251,247,240;
+}
+:root[data-tema="rosa"]{
+  --f1:#FBF3F2;
+  --f2:#F4E2DF;
+  --f3:#EBCFCB;
+  --tarjeta:#FFFFFF;
+  --linea:#E6CBC6;
+  --t1:#2E2430;
+  --t2:#5E5060;
+  --acento:#6E1257;
+  --boton:#B8198E; --boton-hover:#9C1479;
+  --oro:#B4876A;
+  --scrim:251,243,242;
+}
+
+body{background:var(--f1);color:var(--t1)}
+
+.sg-wrap{max-width:1200px;margin:0 auto;padding:0 24px;box-sizing:border-box}
+
+/* Barra superior */
+.sg-barra{background:var(--acento);color:#fff;font:400 14px/1.5 var(--rg-font-sans);text-align:center;padding:9px 16px}
+
+/* Encabezado */
+.sg-hd{position:sticky;top:0;z-index:30;background:rgba(var(--scrim),.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--linea)}
+.sg-hd__in{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:14px;padding-bottom:14px}
+.sg-hd__logo{display:flex;flex:none}
+.sg-hd__logo img{height:40px;width:auto;display:block}
+.sg-hd__nav{display:flex;align-items:center;gap:6px 20px;font:500 15px/1.4 var(--rg-font-sans);white-space:nowrap}
+.sg-hd__nav a{color:var(--t1);text-decoration:none;padding:6px 0;border-bottom:1.5px solid transparent;letter-spacing:0;text-transform:none}
+.sg-hd__nav a:hover,.sg-hd__nav a[aria-current="page"]{border-bottom-color:var(--boton)}
+.sg-hd__nav a.hot{color:var(--acento)}
+.sg-hd__nav .sep{width:1px;height:18px;background:var(--linea)}
+.sg-hd__nav .secu{color:var(--t2);font-weight:400}
+.sg-hd__wa{white-space:nowrap;background:var(--boton);color:#fff;text-decoration:none;font:500 15px/1.2 var(--rg-font-sans);padding:11px 18px;min-height:44px;display:inline-flex;align-items:center;gap:8px;border-radius:4px;box-sizing:border-box}
+.sg-hd__wa:hover{background:var(--boton-hover);color:#fff}
+.sg-hd__burger{display:none;width:48px;height:48px;border:0;background:transparent;color:var(--t1);cursor:pointer;align-items:center;justify-content:center}
+
+/* Menú móvil */
+.sg-menu{position:fixed;inset:0;z-index:60;background:var(--f1);padding:20px 24px 32px;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .3s ease;visibility:hidden;box-sizing:border-box;overflow-y:auto}
+.sg-menu.is-open{transform:none;visibility:visible}
+.sg-menu__top{display:flex;align-items:center;justify-content:space-between}
+.sg-menu__top img{height:38px;width:auto}
+.sg-menu__close{width:48px;height:48px;border:0;background:transparent;color:var(--t1);font-size:34px;line-height:1;cursor:pointer}
+.sg-menu nav{display:flex;flex-direction:column;margin:24px 0 24px}
+.sg-menu nav a{color:var(--t1);text-decoration:none;font:500 26px/1.2 var(--rg-font-display);padding:11px 0;border-bottom:1px solid var(--linea)}
+.sg-menu nav a.secu{font-size:20px;color:var(--t2)}
+.sg-menu .sg-hd__wa{justify-content:center;margin-top:auto}
+
+/* Pie */
+.sg-ft{background:var(--f3);color:var(--t2);font:400 15px/1.6 var(--rg-font-sans)}
+.sg-ft__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:32px;padding-top:56px;padding-bottom:24px}
+.sg-ft__grid img{height:46px;width:auto;display:block}
+.sg-ft h3{margin:0 0 10px;font:500 13px/1.4 var(--rg-font-sans);letter-spacing:.12em;text-transform:uppercase;color:var(--acento)}
+.sg-ft p{margin:0}
+.sg-ft a{color:var(--t1);text-decoration:none}.sg-ft a:hover{text-decoration:underline}
+.sg-ft__links{line-height:2}
+.sg-ft__legal{border-top:1px solid var(--linea);padding-top:16px;padding-bottom:26px;font-size:14px}
+
+/* WhatsApp flotante */
+.sg-wa{position:fixed;right:16px;bottom:20px;z-index:50;display:flex;align-items:center;gap:10px;background:#fff;color:var(--t1);text-decoration:none;font:500 15px/1.2 var(--rg-font-sans);padding:8px 18px 8px 8px;border-radius:999px;box-shadow:0 6px 20px rgba(46,36,48,.2);transition:opacity .3s,transform .3s}
+.sg-wa .ic{width:38px;height:38px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center}
+.sg-wa.is-hidden{opacity:0;transform:translateY(20px);pointer-events:none}
+
+/* Selector de tono (sólo aparece al entrar con ?tema=) */
+.sg-tono{position:fixed;left:50%;transform:translateX(-50%);bottom:20px;z-index:55;display:none;align-items:center;gap:6px;background:#fff;border:1px solid var(--linea);border-radius:999px;padding:6px;box-shadow:0 6px 20px rgba(46,36,48,.18);font:400 14px/1 var(--rg-font-sans)}
+.sg-tono.is-on{display:flex}
+.sg-tono span{padding:0 8px;color:var(--t2)}
+.sg-tono button{white-space:nowrap;border:0;border-radius:999px;padding:8px 14px;min-height:40px;font:500 14px/1 var(--rg-font-sans);cursor:pointer;background:transparent;color:var(--t1);display:inline-flex;align-items:center;gap:8px}
+.sg-tono button i{width:16px;height:16px;border-radius:50%;border:1px solid rgba(0,0,0,.15)}
+.sg-tono button[aria-pressed="true"]{background:var(--acento);color:#fff}
+
+@media (max-width:1180px){
+  .sg-hd__nav,.sg-hd > .sg-hd__in > .sg-hd__wa{display:none}
+  .sg-hd__burger{display:inline-flex}
+}
+@media (max-width:720px){
+  .sg-hd__logo img{height:34px}
+  .sg-wa .txt{display:none}
+  .sg-wa{padding:8px}
+  .sg-tono{bottom:auto;top:150px}
+  .sg-tono span{display:none}
+  .sg-tono button{padding:8px 10px}
+}
+@media (prefers-reduced-motion:reduce){ .sg-menu{transition:none} }

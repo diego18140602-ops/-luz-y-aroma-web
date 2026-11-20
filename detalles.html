@@ -25,10 +25,12 @@
 <link rel="icon" type="image/svg+xml" href="marca-rg/logos/svg/rg-icono-fucsia.svg">
 <link rel="apple-touch-icon" href="marca-rg/logos/png/rg-icono-fucsia-180.png">
 <link rel="stylesheet" href="marca-rg/brand.css">
+<link rel="stylesheet" href="marca-rg/sitio.css">
+<script>(function(){try{var t=new URLSearchParams(location.search).get("tema")||sessionStorage.getItem("rg-tema");if(t==="rosa"||t==="crema"){document.documentElement.setAttribute("data-tema",t);sessionStorage.setItem("rg-tema",t);}}catch(e){}})();</script>
 <style>
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--rg-hueso);color:var(--rg-carbon);font:var(--rg-text-body);-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--f1);color:var(--t1);font:var(--rg-text-body);-webkit-font-smoothing:antialiased}
 img{display:block;max-width:100%}
 a{color:var(--rg-fucsia)}a:hover{color:var(--rg-fucsia-hover)}
 a:focus-visible,button:focus-visible{outline:2px solid var(--rg-fucsia);outline-offset:3px}
@@ -156,7 +158,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rg-fucsia);outline-
 
 /* ===== Sección Detalles (2a aprobada) ===== */
 
-:root,.rg{--fucsia:#B8198E;--fucsia-h:#9C1479;--ciruela:#6E1257;--carbon:#231F26;--pizarra:#4A4458;--hueso:#FAF7F4;--arena:#E9DFD6;--rosa:#F6E3EF;--champ:#C9A66B;
+:root,.rg{--fucsia:#B8198E;--fucsia-h:#9C1479;--ciruela:#6E1257;--carbon:#231F26;--pizarra:#4A4458;--hueso:var(--f1);--arena:#E9DFD6;--rosa:#F6E3EF;--champ:#C9A66B;
   --serif:"Cormorant Garamond",Georgia,serif;--sans:"Jost",system-ui,sans-serif;
   background:var(--hueso);color:var(--carbon);font-family:var(--sans);font-weight:300}
 .rg *{box-sizing:border-box}
@@ -176,13 +178,16 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rg-fucsia);outline-
 .rg a:focus-visible,.rg button:focus-visible{outline:2px solid var(--fucsia);outline-offset:3px}
 
 /* Hero con video de fondo */
-.rg-hero{position:relative;min-height:min(720px,92vh);overflow:hidden;background:var(--carbon);color:var(--hueso);display:flex;align-items:center}
+.rg-hero{position:relative;min-height:min(680px,86vh);overflow:hidden;background:var(--f2);color:var(--t1);display:flex;align-items:center}
 .rg-hero video,.rg-hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.rg-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(35,31,38,.82) 0%,rgba(35,31,38,.45) 45%,rgba(35,31,38,0) 72%)}
+.rg-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(var(--scrim),.97) 0%,rgba(var(--scrim),.88) 34%,rgba(var(--scrim),.3) 58%,rgba(var(--scrim),0) 74%)}
 .rg-hero__in{position:relative;z-index:1;width:100%}
+.rg-hero .rg-btn--line{color:var(--acento);border-color:var(--acento)}
+.rg-hero .rg-btn--line:hover{background:var(--acento);color:#fff}
+@media (min-width:721px){.rg-hero>img{left:auto;width:62%}}
 .rg-hero__txt{max-width:520px}
-.rg-hero .rg-label{color:var(--hueso)}
-.rg-hero .rg-p{color:var(--rosa);margin:24px 0 34px}
+.rg-hero .rg-label{color:var(--acento)}
+.rg-hero .rg-p{color:var(--t2);margin:24px 0 34px}
 .rg-actions{display:flex;gap:12px;flex-wrap:wrap}
 
 /* Velas */
@@ -209,14 +214,14 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rg-fucsia);outline-
 .bg-photo{background:var(--carbon)}
 
 /* Aroma de autor */
-.rg-aroma{margin-top:16px;display:grid;grid-template-columns:1.25fr 1fr;background:var(--ciruela);color:var(--hueso)}
+.rg-aroma{margin-top:16px;display:grid;grid-template-columns:1.25fr 1fr;background:var(--f3);color:var(--t1)}
 .rg-aroma__img{position:relative;min-height:420px}
 .rg-aroma__img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .rg-aroma__txt{padding:56px 52px;display:flex;flex-direction:column;justify-content:center}
-.rg-aroma .rg-label{color:var(--rosa)}
-.rg-aroma .rg-p{color:var(--rosa);font-size:17px;margin:16px 0 24px}
+.rg-aroma .rg-label{color:var(--acento)}
+.rg-aroma .rg-p{color:var(--t2);font-size:17px;margin:16px 0 24px}
 .rg-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px;padding:0;list-style:none}
-.rg-chips li{font:400 13px/1 var(--sans);letter-spacing:.06em;padding:10px 14px;border-radius:999px;border:1px solid rgba(246,227,239,.5)}
+.rg-chips li{font:400 13px/1 var(--sans);letter-spacing:.06em;padding:10px 14px;border-radius:999px;border:1px solid var(--linea);background:var(--f1)}
 
 /* Complementos */
 .rg-comps{padding:96px 0 0}
@@ -275,8 +280,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rg-fucsia);outline-
   .rg-rule{margin:14px 0 16px}
   .rg-p{font-size:16px}
   .rg-hero{min-height:640px;align-items:flex-end;padding-bottom:36px}
-  .rg-hero video,.rg-hero>img{object-position:62% 50%}
-  .rg-hero::after{background:linear-gradient(0deg,rgba(35,31,38,.9) 0%,rgba(35,31,38,.35) 55%,rgba(35,31,38,.25) 100%)}
+  .rg-hero video,.rg-hero>img{object-position:84% 40%;height:56%}
+  .rg-hero::after{background:linear-gradient(180deg,rgba(var(--scrim),0) 0%,rgba(var(--scrim),.2) 30%,rgba(var(--scrim),.94) 55%,rgba(var(--scrim),1) 100%)}
   .rg-hero .rg-p{margin:16px 0 24px}
   .rg-actions .rg-btn{flex:1;text-align:center}
   .rg-velas,.rg-comps{padding-top:64px}
@@ -339,28 +344,40 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rg-fucsia);outline-
 </head>
 <body>
 
-<header class="hd">
-  <div class="wrap hd__in">
-    <a class="hd__logo" href="index.html" aria-label="Raquel Gutiérrez, inicio"><img src="marca-rg/logos/svg/rg-logo-header.svg" alt="Raquel Gutiérrez"></a>
-    <nav class="hd__nav" aria-label="Principal">
-      <a href="detalles.html" aria-current="page">Detalles y suministros</a>
-      <a href="espacios.html">Espacios</a>
-      <a href="index.html#nosotras">Nosotras</a>
-      <a class="rg-btn rg-btn--primario" data-wa="Hola, me gustaría información de Raquel Gutiérrez." href="https://wa.me/526241198718" target="_blank" rel="noopener" style="border:0;padding:14px 24px;color:#fff">Contacto</a>
+<div class="sg-barra">Proveedor de velas y amenidades para hoteles en Los Cabos · Temporada navideña: aparta tu pedido con tiempo</div>
+
+<header class="sg-hd">
+  <div class="sg-wrap sg-hd__in">
+    <a class="sg-hd__logo" href="index.html" aria-label="Raquel Gutiérrez, inicio"><img src="marca-rg/logos/svg/rg-logo-header.svg" alt="Raquel Gutiérrez" width="265" height="40"></a>
+    <nav class="sg-hd__nav" aria-label="Principal">
+      <a class="hot" href="index.html#hoteles">Hoteles</a>
+      <a href="index.html#envases">Velas</a>
+      <a href="index.html#relleno">Relleno</a>
+      <a href="detalles.html" aria-current="page">Catálogo</a>
+      <a href="index.html#temporada">Navidad</a>
+      <a href="index.html#dulces">Dulces</a>
+      <span class="sep" aria-hidden="true"></span>
+      <a class="secu" href="espacios.html">Espacios</a>
     </nav>
-    <button class="hd__burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+    <a class="sg-hd__wa" data-wa="Hola Raquel, represento a un hotel en Los Cabos y me gustaría conocer su catálogo de velas y amenidades." href="https://wa.me/526241198718" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.5A8.4 8.4 0 1 1 21 11.5z"/></svg> Cotizar para mi hotel</a>
+    <button class="sg-hd__burger" id="sg-burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="sg-menu"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
   </div>
 </header>
-<div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Menú">
-  <div class="menu__top"><img src="marca-rg/logos/svg/rg-logo-header.svg" alt="Raquel Gutiérrez" style="height:38px;width:auto;max-width:calc(100vw - 96px)"><button class="menu__close" id="menu-close" aria-label="Cerrar menú">×</button></div>
+
+<div class="sg-menu" id="sg-menu" role="dialog" aria-modal="true" aria-label="Menú">
+  <div class="sg-menu__top"><img src="marca-rg/logos/svg/rg-logo-header.svg" alt="Raquel Gutiérrez" width="252" height="38"><button class="sg-menu__close" id="sg-menu-close" aria-label="Cerrar menú">×</button></div>
   <nav aria-label="Menú móvil">
-    <a href="index.html">Inicio <small>01</small></a>
-    <a href="detalles.html">Detalles y suministros <small>02</small></a>
-    <a href="espacios.html">Espacios <small>03</small></a>
-    <a href="index.html#nosotras">Nosotras <small>04</small></a>
-    <a href="index.html#contacto">Contacto <small>05</small></a>
+    <a href="index.html">Inicio</a>
+    <a href="index.html#hoteles">Para hoteles</a>
+    <a href="index.html#envases">Velas y envases</a>
+    <a href="index.html#relleno">Relleno de envases</a>
+    <a href="index.html#modalidades">Formas de contratar</a>
+    <a href="detalles.html" aria-current="page">Catálogo completo</a>
+    <a href="index.html#temporada">Navidad y temporada</a>
+    <a href="index.html#dulces">Mesas de dulces</a>
+    <a class="secu" href="espacios.html">Espacios · remodelación</a>
   </nav>
-  <a class="rg-btn rg-btn--primario" data-wa="Hola, me gustaría información de Raquel Gutiérrez." href="https://wa.me/526241198718" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
+  <a class="sg-hd__wa" data-wa="Hola Raquel, represento a un hotel en Los Cabos y me gustaría conocer su catálogo de velas y amenidades." href="https://wa.me/526241198718" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.5A8.4 8.4 0 1 1 21 11.5z"/></svg> Cotizar para mi hotel</a>
 </div>
 
 <main id="top">
@@ -368,13 +385,13 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rg-fucsia);outline-
 
   <div class="rg-hero">
     <!-- Video de fondo: cuando exista img/hero-velas.mp4 se reproduce; mientras tanto se ve el poster -->
-    <img src="img/table.jpg" alt="" aria-hidden="true" fetchpriority="high">
+    <img src="img/portada-velas-led.jpg" alt="" aria-hidden="true" fetchpriority="high" style="object-position:82% 55%">
     <video muted loop playsinline preload="none" data-src="img/hero-velas.mp4" aria-hidden="true" hidden></video>
     <div class="rg-hero__in rg-wrap">
       <div class="rg-hero__txt">
-        <div class="rg-label">Velas · Decoración · Amenidades</div>
+        <div class="rg-label">Catálogo para hoteles · Velas · Amenidades</div>
         <div class="rg-rule"></div>
-        <h2 class="rg-h2" id="rg-titulo">La luz es lo primero que siente tu huésped</h2>
+        <h1 class="rg-h2" id="rg-titulo">La luz es lo primero que siente tu huésped</h1>
         <p class="rg-p">Velas aromáticas para habitación, spa y mesa. Con el aroma y el logo de tu hotel.</p>
         <div class="rg-actions">
           <a class="rg-btn" href="#velas">Ver velas</a>
@@ -394,21 +411,21 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rg-fucsia);outline-
 
   <div class="rg-wrap" style="padding-top:0">
     <div class="rg-aroma">
-      <div class="rg-aroma__img"><img src="img/bath.jpg" alt="Vela ámbar encendida sobre barra de travertino en baño con vista al mar" loading="lazy"></div>
+      <div class="rg-aroma__img"><img src="img/envases/categoria-velas.jpg" alt="Vasos tallados rosa y frasco jaula lila para velas con aroma propio" loading="lazy"></div>
       <div class="rg-aroma__txt">
         <div class="rg-label">Aroma de autor</div>
         <div class="rg-rule"></div>
         <h3 class="rg-h3" style="font-size:clamp(30px,3.4vw,42px)">Que tu hotel huela a tu hotel</h3>
         <p class="rg-p">Creamos una fragancia propia para tus velas, difusores y amenidades. Tus huéspedes la reconocen en cada visita.</p>
         <ul class="rg-chips">
-          <li>Brisa del Pacífico</li><li>Coco y vainilla</li><li>Bugambilia</li><li>Cítricos de Todos Santos</li><li>Copal y madera</li><li>Entre otras</li>
+          <li>Brisa del Pacífico</li><li>Coco y vainilla</li><li>Bugambilia</li><li>Cítricos de Todos Santos</li><li>Copal y madera</li><li>Mezclas personalizadas</li>
         </ul>
         <div><a class="rg-btn" data-wa="Hola, me interesa crear un aroma propio para mi hotel." href="#" target="_blank" rel="noopener">Crear mi aroma</a></div>
       </div>
     </div>
   </div>
 
-  <div class="rg-comps rg-wrap">
+  <div class="rg-comps rg-wrap" id="complementos">
     <div class="rg-row">
       <div><div class="rg-label">Complementos</div><div class="rg-rule"></div><h3 class="rg-h3" style="font-size:clamp(30px,3.4vw,40px)">Para completar cada espacio</h3></div>
       <a class="rg-link" data-wa="Hola, me gustaría recibir el catálogo completo de decoración para hotel/restaurante." href="#" target="_blank" rel="noopener">Pedir catálogo completo →</a>
@@ -420,8 +437,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rg-fucsia);outline-
   <div class="rg-wrap">
     <div class="rg-steps">
       <div><div class="rg-label">Con tu marca</div><div class="rg-rule"></div><h3 class="rg-h3" style="font-size:34px;margin-bottom:24px">Así trabajamos con tu hotel</h3><a class="rg-btn" data-wa="Hola, me interesa personalizar productos con la marca de mi hotel/restaurante." href="#" target="_blank" rel="noopener">Personalizar</a></div>
-      <div><b>01</b><h4>Cuéntanos</h4><p>Espacio, cantidad y fecha por WhatsApp.</p></div>
-      <div><b>02</b><h4>Personalizamos</h4><p>Aroma, logo y empaque. Te enviamos muestra.</p></div>
+      <div><b>01</b><h4>Cuéntanos</h4><p>Espacio, aroma y fecha por WhatsApp.</p></div>
+      <div><b>02</b><h4>Personalizamos</h4><p>Aroma, logo y empaque. Si no tienes logo, te lo diseñamos.</p></div>
       <div><b>03</b><h4>Entregamos</h4><p>En tu hotel en Los Cabos, listo para usar.</p></div>
     </div>
   </div>
@@ -448,51 +465,31 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rg-fucsia);outline-
 </section>
 </main>
 
-<footer class="ft">
-  <div class="wrap">
-    <div class="ft__grid">
-      <div>
-        <img src="marca-rg/logos/svg/rg-logo-horizontal-blanco.svg" alt="Raquel Gutiérrez · Proyectos, Construcción, Decoración">
-        <p>Los Cabos, Baja California Sur, México</p>
-      </div>
-      <div>
-        <h3>Explora</h3>
-        <nav aria-label="Pie de página">
-          <a href="detalles.html">Detalles y suministros</a>
-          <a href="espacios.html">Espacios</a>
-          <a href="index.html#nosotras">Nosotras</a>
-        </nav>
-      </div>
-      <div>
-        <h3>Contacto</h3>
-        <a class="ft__wa" data-wa="Hola, me gustaría información de Raquel Gutiérrez." href="https://wa.me/526241198718" target="_blank" rel="noopener">WhatsApp +52 624 119 8718</a>
-      </div>
-    </div>
-    <div class="ft__legal">© <span id="year">2026</span> Raquel Gutiérrez. Todos los derechos reservados.</div>
+<footer class="sg-ft">
+  <div class="sg-wrap sg-ft__grid">
+    <div><img src="marca-rg/logos/svg/rg-logo-header.svg" alt="Raquel Gutiérrez" width="304" height="46"><p style="margin-top:14px">Más de 35 años en Los Cabos.</p></div>
+    <div><h3>Para hoteles</h3><p class="sg-ft__links"><a href="index.html#envases">Velas y envases</a><br><a href="index.html#relleno">Relleno de envases</a><br><a href="index.html#modalidades">Formas de contratar</a><br><a href="detalles.html">Catálogo completo</a><br><a href="index.html#temporada">Navidad y temporada</a></p></div>
+    <div><h3>Contacto</h3><p class="sg-ft__links"><a data-wa="Hola Raquel, vi su página web y me gustaría recibir información sobre sus servicios." href="https://wa.me/526241198718" target="_blank" rel="noopener">WhatsApp +52 624 119 8718</a><br><a href="mailto:luciaraqueldos02@yahoo.com.mx">luciaraqueldos02@yahoo.com.mx</a></p></div>
+    <div><h3>Zona de servicio</h3><p>San José del Cabo, Cabo San Lucas y Corredor Turístico, Baja California Sur.</p><p style="margin-top:10px"><a href="espacios.html">Espacios · remodelación</a></p></div>
   </div>
+  <div class="sg-wrap sg-ft__legal">© <span id="sg-year">2026</span> Raquel Gutiérrez. Todos los derechos reservados.</div>
 </footer>
 
-<a class="wa-float" data-wa="Hola, me gustaría información de Raquel Gutiérrez." href="https://wa.me/526241198718" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
-  <svg width="26" height="26" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.5-.3.4c-.1.1-.2.3 0 .5.1.2.6 1 1.3 1.6.9.8 1.7 1.1 1.9 1.2.2.1.4.1.5-.1l.7-.9c.2-.2.3-.2.5-.1l1.9.9c.2.1.4.2.4.3.1.1.1.6-.1 1.3z"/></svg>
+<div class="sg-tono" id="sg-tono" role="group" aria-label="Elegir tono de fondo">
+  <span>Tono:</span>
+  <button type="button" data-tema="crema" aria-pressed="true"><i style="background:#F3EADC"></i>A · Crema</button>
+  <button type="button" data-tema="rosa" aria-pressed="false"><i style="background:#F4E2DF"></i>B · Rosa palo</button>
+</div>
+
+<a class="sg-wa" id="sg-wa" data-wa="Hola Raquel, vi su página web y me gustaría recibir información sobre sus servicios." href="https://wa.me/526241198718" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+  <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.5-.3.4c-.1.1-.2.3 0 .5.1.2.6 1 1.3 1.6.9.8 1.7 1.1 1.9 1.2.2.1.4.1.5-.1l.7-.9c.2-.2.3-.2.5-.1l1.9.9c.2.1.4.2.4.3.1.1.1.6-.1 1.3z"/></svg></span>
+  <span class="txt" id="sg-wa-txt">¿Te ayudo?</span>
 </a>
+
+<script src="marca-rg/sitio.js"></script>
 
 <script>
 (function(){
-  var WA_NUMBER = "526241198718";
-  document.querySelectorAll("[data-wa]").forEach(function(a){
-    a.href = "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(a.getAttribute("data-wa"));
-  });
-  var menu = document.getElementById("menu"), burger = document.getElementById("burger");
-  function toggle(open){
-    menu.classList.toggle("is-open", open);
-    burger.setAttribute("aria-expanded", open);
-    document.body.style.overflow = open ? "hidden" : "";
-  }
-  burger.addEventListener("click", function(){ toggle(true); });
-  document.getElementById("menu-close").addEventListener("click", function(){ toggle(false); });
-  menu.querySelectorAll("nav a").forEach(function(a){ a.addEventListener("click", function(){ toggle(false); }); });
-  document.addEventListener("keydown", function(e){ if(e.key === "Escape") toggle(false); });
-  document.getElementById("year").textContent = new Date().getFullYear();
   document.querySelectorAll("img[data-src]").forEach(function(img){
     var probe = new Image();
     probe.onload = function(){ img.src = img.getAttribute("data-src"); img.hidden = false; };
